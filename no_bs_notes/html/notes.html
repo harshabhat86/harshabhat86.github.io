@@ -28,11 +28,12 @@
   		    xfbml      : true  // parse XFBML
   		  });
     
-    alert("something is executed"); 
+    
   	Parse.FacebookUtils.logIn(null, {
         success: function(user) {
           if (!user.existed()) {
             alert("User signed up and logged in through Facebook!");
+            alert("Curr user:"P+arse.User.current());
           } else {
             alert("User logged in through Facebook!");
           }
