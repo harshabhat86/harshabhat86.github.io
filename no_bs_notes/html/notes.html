@@ -33,7 +33,7 @@
         success: function(user) {
           if (!user.existed()) {
             alert("User signed up and logged in through Facebook!");
-            alert("Curr user:"P+arse.User.current());
+            
           } else {
             alert("User logged in through Facebook!");
           }
@@ -54,6 +54,8 @@
          js.src = "//connect.facebook.net/en_US/all.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+      
+      alert("Curr user:"+Parse.User.current());
     </script>
 
 
