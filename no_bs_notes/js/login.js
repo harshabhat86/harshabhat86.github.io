@@ -43,14 +43,17 @@ function signinCallback(authResult) {
 	    
 	       gapi.client.load('plus','v1', function(){
 	       	
-	       	var request = gapi.client.plus.people.list({
-	    	   'userId': 'me'
-	    	 });
+	       	var request = gapi.client.plus.people.get( {'userId' : 'me'} );
+	    	
 	    	 request.execute(function(resp) {
-	    	   console.log('ID: ' + resp.id);
-	    	  console.log('Display Name: ' + resp.displayName);
-	    	  console.log('Image URL: ' + resp.image.url);
-	    	  console.log('Profile URL: ' + resp.url);
+	    		 if (resp.error){
+	    			 console.log("profile error:"+profile.error);
+	    			 return;
+	    		 }
+	    		 console.log('ID: ' + resp.id);
+		    	  console.log('Display Name: ' + resp.displayName);
+		    	  console.log('Image URL: ' + resp.image.url);
+		    	  console.log('Profile URL: ' + resp.url);
 	    	 });
 	       	
 	       });
