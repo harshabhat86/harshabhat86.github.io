@@ -42,26 +42,16 @@ function signinCallback(authResult) {
 	   // document.getElementById('customBtn').setAttribute('style', 'display: none');
 	    
 	       gapi.client.load('plus','v1', function(){
-	        $('#authResult').html('Auth Result:<br/>');
-	        for (var field in authResult) {
-	          $('#authResult').append(' ' + field + ': ' +
-	              authResult[field] + '<br/>');
-	        }
-	        if (authResult['access_token']) {
-//	          $('#authOps').show('slow');
-	          $('#customBtn').hide();
-	          //helper.profile();
-	          //helper.people();
-	        } else if (authResult['error']) {
-	          // There was an error, which means the user is not signed in.
-	          // As an example, you can handle by writing to the console:
-	          console.log('There was an error: ' + authResult['error']);
-	          $('#authResult').append('Logged out');
-//	          $('#authOps').hide('slow');
-	          $('#customBtn').show();
-	        }
-	        console.log('authResult', authResult);
-	      });
+	       	
+	       	var request = gapi.client.plus.people.list({
+	    	   'userId': 'me',
+	    	   'collection': 'visible'
+	    	 });
+	    	 request.execute(function(resp) {
+	    	   console.log('Num people visible:' + resp.totalItems);
+	    	 });
+	       	
+	       });
 	    
 	    
 	    
@@ -78,20 +68,7 @@ function signinCallback(authResult) {
 	    
 	  }
 	  
-	  /*
-	  Login id access trial
-	  */
-	  
-	   var request = gapi.client.plus.people.get({
-	    	  'userId' : 'me'
-	    	});
-	    
-	    request.execute(function(resp) {
-	    	  console.log('ID: ' + resp.id);
-	    	  console.log('Display Name: ' + resp.displayName);
-	    	  console.log('Image URL: ' + resp.image.url);
-	    	  console.log('Profile URL: ' + resp.url);
-	    	});
+	
 	  
 	}
 
