@@ -23,8 +23,9 @@ var removeElement = function(id) {
 }
 
 var NoteObject = Parse.Object.extend("NoteObject");
+var loggedInUser = window.location.split('?loginUserId=')[1];
 
-var user = "harsha";
+var user = loggedInUser;
 var count = 0;
 
 var ulElem = 'stickies';
@@ -354,6 +355,8 @@ function getHashTags(str) {
 		return str.match(/(\S*#\[[^\]]+\])|(\S*#\S+)/gi);
 
 }
+
+
 
 function keyDownTextField(e) {
 
