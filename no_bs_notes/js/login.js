@@ -28,7 +28,10 @@ $( document ).ready(function() {
        .fadeIn( 550 );
  });
  
- 
+ $('#gp').click(function(){
+	 $("signinButton").click();
+	 
+ });
 	
 });
 
@@ -36,28 +39,26 @@ function signinCallback(authResult) {
 	  if (authResult['status']['signed_in']) {
 	    // Update the app to reflect a signed in user
 	    // Hide the sign-in button now that the user is authorized, for example:
-	   // document.getElementById('customBtn').setAttribute('style', 'display: none');
+	    document.getElementById('customBtn').setAttribute('style', 'display: none');
 	    
-	       gapi.client.load('plus','v1', function(){
-	       	
-	       	var request = gapi.client.plus.people.get( {'userId' : 'me'} );
+	    
+	    gapi.client.load('plus','v1', function(){
+	    	var request = gapi.client.plus.people.get( {'userId' : 'me'} );
 	    	
 	    	 request.execute(function(resp) {
 	    		 if (resp.error){
-	    			 console.log("profile error:"+resp.error);
+	    			 console.log("profile error:"+profile.error);
 	    			 return;
 	    		 }
-	    		 console.log('ID: ' + resp.id);
+	    		  console.log('ID: ' + resp.id);
 		    	  console.log('Display Name: ' + resp.displayName);
 		    	  console.log('Image URL: ' + resp.image.url);
 		    	  console.log('Profile URL: ' + resp.url);
-		    	  window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?user='+resp.id;
+		    	  
+		    	  window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+resp.id;
 	    	 });
-	       	
-	       });
-	    
-	    
-	    alert('Signed In Successfully using google!');
+	      });
+
 	  } else {
 	    // Update the app to reflect a signed out user
 	    // Possible error values:
@@ -67,8 +68,5 @@ function signinCallback(authResult) {
 	    console.log('Sign-in state: ' + authResult['error']);
 	    
 	  }
-	  
-	
-	  
 	}
 
