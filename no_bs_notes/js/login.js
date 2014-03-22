@@ -41,16 +41,30 @@ function signinCallback(authResult) {
 	    // Hide the sign-in button now that the user is authorized, for example:
 	    document.getElementById('customBtn').setAttribute('style', 'display: none');
 	    
-	      var request = gapi.client.plus.people.get({
-	    	  'userId' : 'me'
-	    	});
+	       gapi.client.load('plus','v1', function(){
+	        $('#authResult').html('Auth Result:<br/>');
+	        for (var field in authResult) {
+	          $('#authResult').append(' ' + field + ': ' +
+	              authResult[field] + '<br/>');
+	        }
+	        if (authResult['access_token']) {
+//	          $('#authOps').show('slow');
+//	          $('#gConnect').hide();
+	          helper.profile();
+	          helper.people();
+	        } else if (authResult['error']) {
+	          // There was an error, which means the user is not signed in.
+	          // As an example, you can handle by writing to the console:
+	          console.log('There was an error: ' + authResult['error']);
+	          $('#authResult').append('Logged out');
+//	          $('#authOps').hide('slow');
+//	          $('#gConnect').show();
+	        }
+	        console.log('authResult', authResult);
+	      });
 	    
-	    request.execute(function(resp) {
-	    	  console.log('ID: ' + resp.id);
-	    	  console.log('Display Name: ' + resp.displayName);
-	    	  console.log('Image URL: ' + resp.image.url);
-	    	  console.log('Profile URL: ' + resp.url);
-	    	});
+	    
+	    
 
 
 	    alert('Signed In Successfully!');
