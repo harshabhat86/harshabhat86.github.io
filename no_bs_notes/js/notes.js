@@ -23,7 +23,7 @@ var removeElement = function(id) {
 }
 
 var NoteObject = Parse.Object.extend("NoteObject");
-var loggedInUser = string(window.location).split('?loginUserId=')[1];
+var loggedInUser = String(window.location).split('?loginUserId=')[1];
 
 var user = loggedInUser;
 var count = 0;
