@@ -44,8 +44,7 @@ function signinCallback(authResult) {
 	       gapi.client.load('plus','v1', function(){
 	       	
 	       	var request = gapi.client.plus.people.list({
-	    	   'userId': 'me',
-	    	   'fields':'id'
+	    	   'userId': 'me'
 	    	 });
 	    	 request.execute(function(resp) {
 	    	   console.log('ID: ' + resp.id);
