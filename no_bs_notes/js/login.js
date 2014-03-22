@@ -39,7 +39,7 @@ function signinCallback(authResult) {
 	  if (authResult['status']['signed_in']) {
 	    // Update the app to reflect a signed in user
 	    // Hide the sign-in button now that the user is authorized, for example:
-	    document.getElementById('customBtn').setAttribute('style', 'display: none');
+	   // document.getElementById('customBtn').setAttribute('style', 'display: none');
 	    
 	       gapi.client.load('plus','v1', function(){
 	        $('#authResult').html('Auth Result:<br/>');
@@ -49,16 +49,16 @@ function signinCallback(authResult) {
 	        }
 	        if (authResult['access_token']) {
 //	          $('#authOps').show('slow');
-//	          $('#gConnect').hide();
-	          helper.profile();
-	          helper.people();
+	          $('#customBtn').hide();
+	          //helper.profile();
+	          //helper.people();
 	        } else if (authResult['error']) {
 	          // There was an error, which means the user is not signed in.
 	          // As an example, you can handle by writing to the console:
 	          console.log('There was an error: ' + authResult['error']);
 	          $('#authResult').append('Logged out');
 //	          $('#authOps').hide('slow');
-//	          $('#gConnect').show();
+	          $('#customBtn').show();
 	        }
 	        console.log('authResult', authResult);
 	      });
