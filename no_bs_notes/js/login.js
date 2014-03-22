@@ -28,10 +28,7 @@ $( document ).ready(function() {
        .fadeIn( 550 );
  });
  
- $('#gp').click(function(){
-	 $("signinButton").click();
-	 
- });
+ 
 	
 });
 
@@ -47,22 +44,20 @@ function signinCallback(authResult) {
 	    	
 	    	 request.execute(function(resp) {
 	    		 if (resp.error){
-	    			 console.log("profile error:"+profile.error);
+	    			 console.log("profile error:"+resp.error);
 	    			 return;
 	    		 }
 	    		 console.log('ID: ' + resp.id);
 		    	  console.log('Display Name: ' + resp.displayName);
 		    	  console.log('Image URL: ' + resp.image.url);
 		    	  console.log('Profile URL: ' + resp.url);
+		    	  window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?user='+resp.id;
 	    	 });
 	       	
 	       });
 	    
 	    
-	    
-
-
-	    alert('Signed In Successfully!');
+	    alert('Signed In Successfully using google!');
 	  } else {
 	    // Update the app to reflect a signed out user
 	    // Possible error values:
