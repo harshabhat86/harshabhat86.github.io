@@ -44,11 +44,13 @@ function signinCallback(authResult) {
 	       gapi.client.load('plus','v1', function(){
 	       	
 	       	var request = gapi.client.plus.people.list({
-	    	   'userId': 'me',
-	    	   'collection': 'visible'
+	    	   'userId': 'me'
 	    	 });
 	    	 request.execute(function(resp) {
-	    	   console.log('Num people visible:' + resp.totalItems);
+	    	   console.log('ID: ' + resp.id);
+	    	  console.log('Display Name: ' + resp.displayName);
+	    	  console.log('Image URL: ' + resp.image.url);
+	    	  console.log('Profile URL: ' + resp.url);
 	    	 });
 	       	
 	       });
