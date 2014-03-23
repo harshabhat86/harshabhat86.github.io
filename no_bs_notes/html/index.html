@@ -35,17 +35,18 @@
     
   };
     
-  function loginFB(){
+   function loginFB(){
 	  
 	  
 	  Parse.FacebookUtils.logIn(null, {
 	        success: function(user) {
 	          if (!user.existed()) {
 	            alert("User signed up and logged in through Facebook!");
-	            alert("Curr user:");
+	            console.log("userid is:"+user.attributes.userid);
 	          } else {
 	            alert("User logged in through Facebook!");
-	            alert("The user is"+Parse.User.current());
+	            
+	            console.log("userid is:"+user.attributes.userid);
 	            
 	          }
 	        },
