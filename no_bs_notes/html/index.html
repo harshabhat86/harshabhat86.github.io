@@ -35,23 +35,23 @@
     
   };
     
-   function loginFB(){
+  function loginFB(){
 	  
 	  
 	  Parse.FacebookUtils.logIn(null, {
 	        success: function(user) {
 	          if (!user.existed()) {
-	            alert("User signed up and logged in through Facebook!");
-	            console.log("userid is:"+user.attributes.userid);
+	        	  window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+Parse.User.current().attributes.username;
+	        	  
 	          } else {
-	            alert("User logged in through Facebook!");
 	            
-	            console.log("userid is:"+user.attributes.userid);
+	        	  window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+Parse.User.current().attributes.username;
 	            
 	          }
 	        },
 	        error: function(user, error) {
 	          alert("User cancelled the Facebook login or did not fully authorize.");
+	          return;
 	        }
 	      });
 	  
