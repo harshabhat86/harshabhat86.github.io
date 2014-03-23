@@ -41,10 +41,11 @@
 	  Parse.FacebookUtils.logIn(null, {
 	        success: function(user) {
 	          if (!user.existed()) {
-	            alert("User signed up and logged in through Facebook!"+Parse.User.current());
-	            alert("Curr user:"+Parse.User.current());
+	            alert("User signed up and logged in through Facebook!");
+	            alert("Curr user:");
 	          } else {
 	            alert("User logged in through Facebook!");
+	            alert("The user is"+Parse.User.current());
 	            
 	          }
 	        },
