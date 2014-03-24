@@ -29,7 +29,7 @@ var loggedInUser = window.location.href.split('?loggedInUser=')[1];
 var user = loggedInUser;
 
 
-if (user=='')
+if (user==='undefined'||!user)
 	{
 	 window.location = 'http://harshabhat86.github.io/no_bs_notes/html/index.html';
 	}
