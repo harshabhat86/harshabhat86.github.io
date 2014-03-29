@@ -246,7 +246,7 @@ img{border:0; margin: 0; padding: 0;}
    padding-top:10px;
    color:red;
    text-align: center;
-   
+   z-index: 2;
    }
    
    .stickyNote{
@@ -257,5 +257,8 @@ img{border:0; margin: 0; padding: 0;}
    cursor:pointer;
    padding-right: 10px;
    color:white;
-   vertical-align: center;
+   position:absolute;
+   left:95%;
+   top:3%;
+   z-index: 2;
    }
