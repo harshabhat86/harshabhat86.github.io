@@ -168,15 +168,48 @@ NoteBook.prototype.getNote = function(noteId) {
 
 
 NoteBook.prototype.searchHashTag = function(searchString){
-	var searchResult = new Array();
+	
 	for (var i =0;i<this.notes.length;i++){
 		tagString = this.notes[i].getHashTag().join(',');
-		if (tagString.indexOf(searchString)>=0)
+		if (tagString.indexOf(searchString)==-1)
 			{
-				searchResult.push(this.notes[i]);
+				
+				this.hideNote(this.notes[i].id);
 			}
 	}
-	return searchResult;
+	
+	
+	
+}
+
+
+
+NoteBook.prototype.hideAllNotes = function(){
+	for (var i =0;i<this.notes.length;i++){
+		
+		document.getElementById(this.notes[i].id+"_li").style.display = 'none';
+		
+	}
+}
+
+NoteBook.prototype.showAllNotes = function(){
+	for (var i =0;i<this.notes.length;i++){
+		
+		document.getElementById(this.notes[i].id+"_li").style.display = '';
+		
+	}
+}
+
+NoteBook.prototype.showNote = function(noteId){
+		if (document.getElementById(noteId+"_li"))
+		document.getElementById(noteId+"_li").style.display = '';
+	
+}
+
+NoteBook.prototype.hideNote = function(noteId){
+	if (document.getElementById(noteId+"_li"))
+	document.getElementById(noteId+"_li").style.display = 'none';
+
 }
 /** ************************************************** */
 
@@ -217,9 +250,7 @@ aNote.prototype.toHTML = function() {
 			+ "<img id='"
 			+ this.id
 			+ "_delete' class='icon delete' src='../images/cross.png' onclick='deleteNote(\""
-			+ this.id + "\")'/>" + "<p title='click to edit' onclick='editNote(\""
-			+ this.id
-			+ "\")'>" + hashTagLink + "</p> " + "</a>";
+			+ this.id + "\")'/>" + "<p>" + hashTagLink + "</p> " + "</a>";
 	li.innerHTML = str;
 	li.id = this.id + "_li";
 
@@ -338,6 +369,7 @@ aNote.prototype.getHashTag = function(){
 		{
 			return this.tags;
 		}
+	return new Array();
 }
 
 /*
@@ -386,13 +418,31 @@ function highlightHashTag(str) {
 		for ( var int = 0; int < allTags.length; int++) {
 
 			tag = allTags[int];
-			spanTag = '<span class="hashtag">' + tag + '</span>';
+			spanTag = '<span class="hashtag" onClick="searchForTag(\''+tag+'\')" >' + tag + '</span>';
 			str = str.replace(tag, spanTag);
 		}
 
 	return str;
 
 }
+
+function searchForTag(searchString){
+	
+	
+	
+	window.noteBook.searchHashTag(searchString);
+	/*
+	for (var x =0; x<searchResult.length;x++)
+		{
+		console.log("Elem:"+searchResult[x]+'_li');
+		
+		window.noteBook.showNote(searchResult[x]+'_li');
+		
+		
+		}
+	*/
+}
+
 
 function getHashTags(str) {
 
