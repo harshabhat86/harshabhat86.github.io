@@ -252,3 +252,10 @@ img{border:0; margin: 0; padding: 0;}
    .stickyNote{
     cursor:pointer;
    }
+   #logout{
+   float:right;
+   cursor:pointer;
+   padding-right: 10px;
+   color:white;
+   vertical-align: center;
+   }

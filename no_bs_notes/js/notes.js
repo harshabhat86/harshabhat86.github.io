@@ -27,14 +27,26 @@ var NoteObject = Parse.Object.extend("NoteObject");
 var loggedInUser = window.location.href.split('?loggedInUser=')[1];
 
 var user = loggedInUser;
+/*
 
 
-if (user==='undefined'||!user)
+	if (user==='undefined'||!user)
 	{
 	 window.location = 'http://harshabhat86.github.io/no_bs_notes/html/index.html';
 	}
+	else
+	{
+	 var logoutInfo = '<div id="logout" onclick="logout();">Logout</div>'
+	 
+	}
 
-
+*/
+function logout()
+{
+	user = '';
+	loggedInUser = '';
+	window.location = 'http://harshabhat86.github.io/no_bs_notes/html/index.html';
+}
 var count = 0;
 
 var ulElem = 'stickies';
@@ -152,6 +164,19 @@ NoteBook.prototype.getNote = function(noteId) {
 			return this.notes[i];
 	}
 	return '';
+}
+
+
+NoteBook.prototype.searchHashTag = function(searchString){
+	var searchResult = new Array();
+	for (var i =0;i<this.notes.length;i++){
+		tagString = this.notes[i].getHashTag().join(',');
+		if (tagString.indexOf(searchString)>=0)
+			{
+				searchResult.push(this.notes[i]);
+			}
+	}
+	return searchResult;
 }
 /** ************************************************** */
 
@@ -305,6 +330,14 @@ aNote.prototype.getParseObject = function() {
 					});
 
 	return noteObject;
+}
+
+aNote.prototype.getHashTag = function(){
+	
+	if (this.tags)
+		{
+			return this.tags;
+		}
 }
 
 /*

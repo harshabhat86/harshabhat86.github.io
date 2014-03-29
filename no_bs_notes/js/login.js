@@ -1,6 +1,6 @@
 Parse.initialize("kL1NFNINEGFag94CWEM6LmL7xRxPzVvAPNhAO6nZ",
 	"xlKdh66kYBpTJ33FneuyDkuzlayFQ2HDGfMHgeD1");
-
+var googleClicked = 0;
 $( document ).ready(function() {
 	
 	 var SHOW_CLASS = 'show',
@@ -36,7 +36,7 @@ $( document ).ready(function() {
 });
 
 function signinCallback(authResult) {
-	  if (authResult['status']['signed_in']) {
+	  if (authResult['status']['signed_in'] && googleClicked==1) {
 	    // Update the app to reflect a signed in user
 	    // Hide the sign-in button now that the user is authorized, for example:
 	    document.getElementById('customBtn').setAttribute('style', 'display: none');
@@ -70,3 +70,7 @@ function signinCallback(authResult) {
 	  }
 	}
 
+function setGlobalFlag()
+{
+	googleClicked = 1;
+}
