@@ -1,7 +1,9 @@
 Parse.initialize("kL1NFNINEGFag94CWEM6LmL7xRxPzVvAPNhAO6nZ",
 	"xlKdh66kYBpTJ33FneuyDkuzlayFQ2HDGfMHgeD1");
 
-
+var SEARCH_COMMAND = '/?';
+var DELETE_COMMAND = '/X';
+var EDIT_COMMAND = '/E';
 
 /*
  * If space bar is clicked, we take you to enter the notes.
@@ -428,19 +430,8 @@ function highlightHashTag(str) {
 
 function searchForTag(searchString){
 	
-	
-	
 	window.noteBook.searchHashTag(searchString);
-	/*
-	for (var x =0; x<searchResult.length;x++)
-		{
-		console.log("Elem:"+searchResult[x]+'_li');
-		
-		window.noteBook.showNote(searchResult[x]+'_li');
-		
-		
-		}
-	*/
+	
 }
 
 
@@ -494,13 +485,10 @@ function keyDownTextField(e) {
 			note.update();
 
 		}
-		/*
-		 * ul = document.getElementById(ulElem); ul.insertBefore(note.toHTML(),
-		 * ul.firstChild);
-		 * 
-		 * document.getElementById(containerDiv).appendChild(ul);
-		 */
+		
 		resetEditNote();
 	}
 
 }
+
+
