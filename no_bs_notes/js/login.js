@@ -117,13 +117,13 @@ function getUser(){
 			{
 				/* We become free of Parse after this method. */
 				success : function(results) {
-					
+					console.log("after return:"+window.username);
 					if (results.length ==0){
 						createUser(window.username);
 					}
 					else
 						{
-						window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+results[0].attributes.username;	
+						 window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+window.username;	
 						}
 
 				}
