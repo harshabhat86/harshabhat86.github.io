@@ -43,12 +43,16 @@
 	  Parse.FacebookUtils.logIn(null, {
 	        success: function(user) {
 	          if (!user.existed()) {
+	        	  window.username = Parse.User.current().attributes.username;
 	        	  document.getElementById('fb').setAttribute('style', 'display: none');
-	        	  window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+Parse.User.current().attributes.username;
+	        	  getUser();
+	        	  //window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+Parse.User.current().attributes.username;
 	        	  
 	          } else {
+	        	  window.username = Parse.User.current().attributes.username;
 	        	  document.getElementById('fb').setAttribute('style', 'display: none');
-	        	  window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+Parse.User.current().attributes.username;
+	        	  getUser();
+	        	  //window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+Parse.User.current().attributes.username;
 	            
 	          }
 	        },
