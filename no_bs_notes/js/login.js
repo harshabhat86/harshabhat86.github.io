@@ -60,8 +60,8 @@ function signinCallback(authResult) {
 		    	  console.log('Profile URL: ' + resp.url);
 		    	  window.username = resp.id;
 		    	  
-		    	  
-		    	  window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+window.username;
+		    	  getUser();
+		    	  //window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+window.username;
 	    	 });
 	      });
 
