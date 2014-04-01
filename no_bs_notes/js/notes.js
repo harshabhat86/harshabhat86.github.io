@@ -1,6 +1,6 @@
 Parse.initialize("kL1NFNINEGFag94CWEM6LmL7xRxPzVvAPNhAO6nZ",
 	"xlKdh66kYBpTJ33FneuyDkuzlayFQ2HDGfMHgeD1");
-
+var NoteUser = Parse.Object.extend("NoteUser");
 var SEARCH_COMMAND = '/?';
 var DELETE_COMMAND = '/X';
 var EDIT_COMMAND = '/E';
@@ -28,7 +28,12 @@ var NoteObject = Parse.Object.extend("NoteObject");
 
 var loggedInUser = window.location.href.split('?loggedInUser=')[1];
 
+
+var username = loggedInUser;
+
 var user = loggedInUser;
+
+getUser();
 /*
 
 
@@ -380,9 +385,9 @@ aNote.prototype.getHashTag = function(){
  * 
  */
 
-var noteBook = new NoteBook();
-noteBook.init(user, 0, []);
-noteBook.getFromServer();
+//var noteBook = new NoteBook();
+//noteBook.init(user, 0, []);
+//noteBook.getFromServer();
 
 function editNote(id) {
 	var note = new aNote();
@@ -442,6 +447,40 @@ function getHashTags(str) {
 
 }
 
+/*
+ * 
+ * Get user information from PArse DB to check if the user exists in the system.
+ */
+function getUser(){
+	
+	var noteUser = new Parse.Query(NoteUser);
+	noteUser.equalTo("noteUserId", window.username);
+	
+	noteUser.find(
+			{
+				/* We become free of Parse after this method. */
+				success : function(results) {
+					
+					if (results.length ==0){
+						alert("We dont see this user in the system. Please sign up and then come here.");
+						 window.location = 'http://harshabhat86.github.io/no_bs_notes/html/index.html';
+					}
+					else
+						{
+						var noteBook = new NoteBook();
+						noteBook.init(window.user, 0, []);
+						noteBook.getFromServer();
+						}
+
+				}
+			},
+			{
+				error : function() {
+					alert("Oops!! There was some error we faced. May be you should try again in some time.");
+				}
+			});
+	
+}
 
 
 function keyDownTextField(e) {
@@ -490,5 +529,7 @@ function keyDownTextField(e) {
 	}
 
 }
+
+
 
 
