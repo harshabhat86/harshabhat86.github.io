@@ -95,7 +95,7 @@ function createUser()
 						success : function(noteUser) {
 
 							console.log("User Created!" + noteUser.id);
-							window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+noteUser.attributes.username;
+							window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+window.username;
 							
 						},
 						error : function(noteUser, error) {
@@ -112,7 +112,7 @@ function getUser(){
 	
 	var noteUser = new Parse.Query(NoteUser);
 	noteUser.equalTo("noteUserId", window.username);
-	
+	console.log("USername:"+window.username);
 	noteUser.find(
 			{
 				/* We become free of Parse after this method. */
