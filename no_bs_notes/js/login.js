@@ -1,6 +1,7 @@
 Parse.initialize("kL1NFNINEGFag94CWEM6LmL7xRxPzVvAPNhAO6nZ",
 	"xlKdh66kYBpTJ33FneuyDkuzlayFQ2HDGfMHgeD1");
 var googleClicked = 0;
+var username = '';
 $( document ).ready(function() {
 	
 	 var SHOW_CLASS = 'show',
@@ -35,6 +36,9 @@ $( document ).ready(function() {
 	
 });
 
+var NoteUser = Parse.Object.extend("NoteUser");
+
+
 function signinCallback(authResult) {
 	  if (authResult['status']['signed_in'] && googleClicked==1) {
 	    // Update the app to reflect a signed in user
@@ -54,8 +58,10 @@ function signinCallback(authResult) {
 		    	  console.log('Display Name: ' + resp.displayName);
 		    	  console.log('Image URL: ' + resp.image.url);
 		    	  console.log('Profile URL: ' + resp.url);
+		    	  window.username = resp.id;
 		    	  
-		    	  window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+resp.id;
+		    	  
+		    	  window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+window.username;
 	    	 });
 	      });
 
@@ -73,4 +79,59 @@ function signinCallback(authResult) {
 function setGlobalFlag()
 {
 	googleClicked = 1;
+}
+
+function createUser()
+{
+	var noteUser = new NoteUser();
+
+	noteUser.save(
+					{
+
+						noteUserId : window.username,
+						
+					},
+					{
+						success : function(noteUser) {
+
+							console.log("User Created!" + noteUser.id);
+							window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+noteUser.attributes.username;
+							
+						},
+						error : function(noteUser, error) {
+							alert('There was some error in saving the user. We apologize! Please try again in some time.'
+									+ error);
+						}
+
+					});
+
+}
+
+
+function getUser(){
+	
+	var noteUser = new Parse.Query(NoteUser);
+	noteUser.equalTo("noteUserId", window.username);
+	
+	noteUser.find(
+			{
+				/* We become free of Parse after this method. */
+				success : function(results) {
+					
+					if (results.length ==0){
+						createUser(window.username);
+					}
+					else
+						{
+						window.location = 'http://harshabhat86.github.io/no_bs_notes/html/notes.html?loggedInUser='+results[0].attributes.username;	
+						}
+
+				}
+			},
+			{
+				error : function() {
+					alert("Oops!! There was some error we faced. May be you should try again in some time.");
+				}
+			});
+	
 }
