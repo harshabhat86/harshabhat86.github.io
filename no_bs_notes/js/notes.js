@@ -385,7 +385,7 @@ aNote.prototype.getHashTag = function(){
  * 
  */
 
-//var noteBook = new NoteBook();
+var noteBook = new NoteBook();
 //noteBook.init(user, 0, []);
 //noteBook.getFromServer();
 
@@ -467,7 +467,7 @@ function getUser(){
 					}
 					else
 						{
-						var noteBook = new NoteBook();
+						
 						noteBook.init(window.user, 0, []);
 						noteBook.getFromServer();
 						}
