@@ -141,6 +141,7 @@ NoteBook.prototype.getFromServer = function() {
 									.parseToMyNote(results);
 							window.noteBook.numNotes = results.length;
 							window.noteBook.renderAllNotes();
+							window.noteBook.showAllTags();
 
 						}
 					},
@@ -218,6 +219,48 @@ NoteBook.prototype.hideNote = function(noteId){
 	document.getElementById(noteId+"_li").style.display = 'none';
 
 }
+
+NoteBook.prototype.getAllTags = function(){
+	var hashDict = {};
+	for (var i =0;i<this.notes.length;i++){
+		tagArr = this.notes[i].getHashTag();
+		 for (var j =0;j< tagArr.length;j++)
+			 {
+			 	if (hashDict[tagArr[j]]==null)
+			 		{
+			 			hashDict[tagArr[j]] = 1;
+			 		}
+			 	else
+			 		{
+			 			hashDict[tagArr[j]] = hashDict[tagArr[j]]+1;
+			 		}
+			 	
+			 }
+	}
+	return hashDict;
+
+}
+//Renders all hashtags in a NoteBook as a new list in a div.  
+NoteBook.prototype.showAllTags = function(){
+	removeElement('allHashTags');
+	var div = document.createElement('div');
+	var hashDict = {};
+	var divContent = '';
+	hashDict = this.getAllTags();
+	
+	for (var hash in hashDict){
+		//Create a list for each Dict.
+		//Will create a randomly floating elements for future freedom of arrangement of the tags.
+		divContent+='<li id="tagList_'+hash.substring(1)+'"> '+hash+' :'+hashDict[hash]+'</li></br>';
+	//	
+	}
+	divContent = highlightHashTag(divContent);
+	div.id = "allHashTags";
+	div.innerHTML = divContent;
+	document.getElementById('allTagsContainer').appendChild(div);
+	
+}
+
 /** ************************************************** */
 
 var aNote = function() {
@@ -243,8 +286,9 @@ aNote.prototype.init = function(id, text, title, owner, tags) {
 aNote.prototype.toHTML = function() {
 
 	li = document.createElement('li');
-	
+	//The text that has hashtag will be highlighted.
 	hashTagLink = highlightHashTag(this.text);
+	//Changing the new lines with an HTML new line called <br> :-)
 	hashTagLink = hashTagLink.replace(/\r\n|\r|\n/g,"<br />")
 	var str = "<a id='"
 			+ this.id
@@ -380,8 +424,8 @@ aNote.prototype.getHashTag = function(){
 }
 
 /*
- * Temporary code. To be made solid...... or may be, we can retain this. Will
- * think later.
+ * Temporary code. To be made solid...... or may be, we can retain this. 
+ * Will think later.
  * 
  */
 
@@ -419,7 +463,7 @@ function deleteNote(id) {
 
 }
 function highlightHashTag(str) {
-
+//Return hashtag in the text as an array.
 	allTags = getHashTags(str);
 	if (allTags != null)
 		for ( var int = 0; int < allTags.length; int++) {
@@ -435,6 +479,7 @@ function highlightHashTag(str) {
 
 function searchForTag(searchString){
 	
+	window.noteBook.showAllNotes();
 	window.noteBook.searchHashTag(searchString);
 	
 }
