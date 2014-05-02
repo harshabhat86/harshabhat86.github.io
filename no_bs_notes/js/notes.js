@@ -284,6 +284,7 @@ NoteBook.prototype.showAllTags = function(){
 		{
 		  divContent+='<li id="tagList_'+hashArr[ht].substring(1)+'"> '+hashArr[ht]+'</li></br>';
 		}
+	divContent+='<li id="tagList_resetAll" class="hashtag" onclick = "window.noteBook.getFromServer();"> Reset All </li></br>';
 	divContent = highlightHashTag(divContent);
 	div.id = "allHashTags";
 	div.innerHTML = divContent;
