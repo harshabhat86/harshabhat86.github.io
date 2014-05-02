@@ -13,7 +13,28 @@ document.onkeyup = function(e) {
 	if (keycode == 32 && document.activeElement.id != 'enterNotes') {
 
 		document.getElementById('enterNotes').focus();
-	}
+		setHelpText('Start Typing !! BTW, did we tell you, we support #hashtags ??');
+	}else
+		{
+		  if (document.activeElement.id != 'enterNotes')
+		     setHelpText('Hit the spacebar to start entering notes! That\'s the most accessible button according to us ;-)');
+		  else
+			if (document.activeElement.id == 'enterNotes' && document.activeElement.value=='' )
+				  setHelpText('Start Typing !! BTW, did we tell you, we support #hashtags ??');
+		}
+}
+
+document.onclick = function(e) {
+	
+	var keycode = e.keyCode ? e.keyCode : e.charCode;
+	if (document.activeElement.id != 'enterNotes')
+		{
+		setHelpText('Hit the spacebar to start entering notes!');
+		}else
+			{
+			setHelpText('Start Typing !! BTW, did we tell you, we support #hashtags ??');
+			}
+	
 }
 
 var removeElement = function(id) {
@@ -247,13 +268,22 @@ NoteBook.prototype.showAllTags = function(){
 	var hashDict = {};
 	var divContent = '';
 	hashDict = this.getAllTags();
+	hashArr = new Array();
 	
 	for (var hash in hashDict){
+		
+		hashArr.push(hash+" :"+hashDict[hash]);
+		
 		//Create a list for each Dict.
 		//Will create a randomly floating elements for future freedom of arrangement of the tags.
-		divContent+='<li id="tagList_'+hash.substring(1)+'"> '+hash+' :'+hashDict[hash]+'</li></br>';
+	//	divContent+='<li id="tagList_'+hash.substring(1)+'"> '+hash+' :'+hashDict[hash]+'</li></br>';
 	//	
 	}
+	hashArr.sort(charOrdA);
+	for (var ht = 0;ht<hashArr.length;ht++)
+		{
+		  divContent+='<li id="tagList_'+hashArr[ht].substring(1)+'"> '+hashArr[ht]+'</li></br>';
+		}
 	divContent = highlightHashTag(divContent);
 	div.id = "allHashTags";
 	div.innerHTML = divContent;
@@ -536,11 +566,11 @@ function keyDownTextField(e) {
 	
 	if(elem.value=='')
 		{
-			document.getElementById('helpText').innerHTML = '';
+			setHelpText('');
 		}
 	else
 		{
-			document.getElementById('helpText').innerHTML = 'Press Ctrl+Enter (Ctrl+Return) to save a note!';
+			setHelpText('Press Ctrl+Enter (Ctrl+Return) to save a note!');
 		}
 	var keycode = e.keyCode ? e.keyCode : e.charCode;
 	
@@ -577,4 +607,18 @@ function keyDownTextField(e) {
 
 
 
+function charOrdA(a, b){
+	a = a.toLowerCase(); b = b.toLowerCase();
+	if (a>b) return 1;
+	if (a <b) return -1;
+	return 0; }
+	
+function charOrdD(a, b){
+	a = a.toLowerCase(); b = b.toLowerCase();
+	if (a<b) return 1;
+	if (a >b) return -1;
+	return 0; }
 
+function setHelpText(text){
+	document.getElementById('helpText').innerHTML  = text;
+} 
