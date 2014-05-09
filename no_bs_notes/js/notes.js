@@ -11,9 +11,10 @@ var EDIT_COMMAND = '/E';
 document.onkeyup = function(e) {
 	var keycode = e.keyCode ? e.keyCode : e.charCode;
 	if (keycode == 32 && document.activeElement.id != 'enterNotes') {
-
+		
 		document.getElementById('enterNotes').focus();
 		setHelpText('Start Typing !! BTW, did we tell you, we support #hashtags ??');
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
 	}else
 		{
 		  if (document.activeElement.id != 'enterNotes')
@@ -280,6 +281,7 @@ NoteBook.prototype.showAllTags = function(){
 	//	
 	}
 	hashArr.sort(charOrdA);
+	
 	for (var ht = 0;ht<hashArr.length;ht++)
 		{
 		  divContent+='<li id="tagList_'+hashArr[ht].substring(1)+'"> '+hashArr[ht]+'</li></br>';
