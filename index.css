@@ -1,89 +1,100 @@
-@cube-width: 150px;
-@cube-height: 200px;
+/*@import url('http://fonts.googleapis.com/css?family=Roboto+Condensed');
 
-/* CORE CSS */
-body {
-  .perspective(1000px);
+.preserve-3d {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+*/
+/*body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow-x: none;
+    background-color: #ffffff;
+    font-family: Roboto Condensed, sans-serif;
+    font-size: 12px;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+}*/
+
+/*.back {
+  margin-bottom: 10px;
 }
 
-/* Container box to set the sides relative to */
-.cube {
-	  width: @cube-width;
-  	height: @cube-height;
-	  .transition(all 250ms ease);
-	  .transform-style(preserve-3d);
+.back:before {
+    content: counter(bc) "_";
+    position: absolute;
+    padding: 10px;
 }
 
-/* The two faces of the cube */
-.default-state, .active-state {
-  	height: @cube-height;
+@media screen and (max-width: 1260px) {
+    .back {
+        width: 50%;
+    }
 }
 
-/* Position the faces */
-.default-state {
-	  .translateZ(@cube-height/2);
+@media screen and (max-width: 840px) {
+    .back {
+        width: 100%;
+    }
+}*/
+
+.button_base {
+    margin: 0;
+    border: 0;
+    font-size: 18px;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    cursor: default;
 }
 
-.flip-to-top .active-state {
-	  .transform(rotateX(90deg) translateZ(@cube-height*1.5));
+.button_base:hover {
+    cursor: pointer;
 }
 
-.flip-to-bottom .active-state {
-	  .transform(rotateX(-90deg) translateZ(-50px));
+/* ### ### ### 03 */
+.b03_skewed_slide_in {
+    overflow: hidden;
+    border: #000000 solid 1px;
 }
 
-/* Rotate the cube */
-.cube.flip-to-top:hover {
-	  .rotateX(-89deg);
+.b03_skewed_slide_in div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
-.cube.flip-to-bottom:hover {
-	  .rotateX(89deg);
-}
-/* END CORE CSS */
-
-
-/* Demo styling */
-body {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  margin: 70px;
-  background: #f1f1f1;
+.b03_skewed_slide_in div:nth-child(1) {
+    color: #000000;
+    background-color: #ffffff;
 }
 
-h1 {
-  font-size: 20px;
-  text-align: center;
-  margin-top: 40px;
+.b03_skewed_slide_in div:nth-child(2) {
+    background-color: rgba(0, 0, 0, .85);
+    width: 110%;
+    transition: all 0.15s ease-in-out;
+    transform: translate(-110%, 0px) skewX(-30deg);
 }
 
-.cube {
-	  text-align: center;
-  	margin: 0 auto;
+.b03_skewed_slide_in div:nth-child(3) {
+    color: #ffffff;
+    left: -200px;
+    transition: left 0.15s ease-in-out;
 }
 
-.default-state, .active-state {
-  background: #2ecc71;
-  
-  font-size: 16px;
-  text-transform: uppercase;
-  color: #fff;
-  line-height: @cube-height;
-  .transition(background 250ms ease);
+.b03_skewed_slide_in:hover div:nth-child(2) {
+    transition: all .25s ease-in-out;
+    transform: translate(-15px, 0px) skewX(-30deg);
 }
 
-.cube:hover .default-state {
-  background: darken(#2ecc71, 7%);
-}
-
-.active-state {
-  background: darken(#2ecc71, 7%);
-}
-
-#flipto {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 20px;
-  color: #ccc;
+.b03_skewed_slide_in:hover div:nth-child(3) {
+    left: 0;
+    transition: left 0.30000000000000004s ease-in-out;
 }
