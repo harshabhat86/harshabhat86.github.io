@@ -1,0 +1,89 @@
+@cube-width: 150px;
+@cube-height: 200px;
+
+/* CORE CSS */
+body {
+  .perspective(1000px);
+}
+
+/* Container box to set the sides relative to */
+.cube {
+	  width: @cube-width;
+  	height: @cube-height;
+	  .transition(all 250ms ease);
+	  .transform-style(preserve-3d);
+}
+
+/* The two faces of the cube */
+.default-state, .active-state {
+  	height: @cube-height;
+}
+
+/* Position the faces */
+.default-state {
+	  .translateZ(@cube-height/2);
+}
+
+.flip-to-top .active-state {
+	  .transform(rotateX(90deg) translateZ(@cube-height*1.5));
+}
+
+.flip-to-bottom .active-state {
+	  .transform(rotateX(-90deg) translateZ(-50px));
+}
+
+/* Rotate the cube */
+.cube.flip-to-top:hover {
+	  .rotateX(-89deg);
+}
+
+.cube.flip-to-bottom:hover {
+	  .rotateX(89deg);
+}
+/* END CORE CSS */
+
+
+/* Demo styling */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  margin: 70px;
+  background: #f1f1f1;
+}
+
+h1 {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.cube {
+	  text-align: center;
+  	margin: 0 auto;
+}
+
+.default-state, .active-state {
+  background: #2ecc71;
+  
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: @cube-height;
+  .transition(background 250ms ease);
+}
+
+.cube:hover .default-state {
+  background: darken(#2ecc71, 7%);
+}
+
+.active-state {
+  background: darken(#2ecc71, 7%);
+}
+
+#flipto {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 20px;
+  color: #ccc;
+}
