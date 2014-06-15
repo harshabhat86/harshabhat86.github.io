@@ -330,7 +330,7 @@ POP.Draw = {
 
     rect: function(x, y, w, h, col) {
         var img = new Image();
-        img.src = 'img/wood.jpg';
+        img.src = 'wood.jpg';
         var pat=POP.ctx.createPattern(img,'repeat');
         POP.ctx.fillStyle = pat;
         POP.ctx.fillRect(x, y, w, h);
@@ -440,6 +440,12 @@ POP.Touch = function(x, y) {
 
 POP.Bubble = function() {
 
+    /*
+    Harsha: Change here in order to change the speed of the popping bubbles.
+    this.speed and thos.waveSize will change.
+    Make it dynamic and modular.
+    
+    */
     this.type = 'bubble';
     this.r = (Math.random() * 20) + 10;
     this.speed = (Math.random() * 3) + 1;
