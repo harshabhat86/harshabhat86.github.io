@@ -17,6 +17,13 @@ canvas { display: block; margin: 0 auto; background: #fff; }
 <canvas></canvas>
 <script>
 
+/*
+pop.update is the function where all the things happen. Make sure that function is intact and scrap the rest!!
+:-)
+-Harsha
+
+*/
+// This link below has nailed the requestAnimeFrame!     
 // http://paulirish.com/2011/requestanimationframe-for-smart-animating
 // shim layer with setTimeout fallback
 window.requestAnimFrame = (function(){
@@ -238,7 +245,7 @@ var POP = {
         // update wave offset
         // feel free to play with these values for
         // either slower or faster waves
-        POP.wave.time = new Date().getTime() * 0.002;
+        POP.wave.time = new Date().getTime() * 0.004;
         POP.wave.offset = Math.sin(POP.wave.time * 0.8) * 5;
 
         // calculate accuracy
@@ -322,23 +329,70 @@ POP.Draw = {
 
 
     rect: function(x, y, w, h, col) {
-        POP.ctx.fillStyle = col;
+        var img = new Image();
+        img.src = 'img/wood.jpg';
+        var pat=POP.ctx.createPattern(img,'repeat');
+        POP.ctx.fillStyle = pat;
         POP.ctx.fillRect(x, y, w, h);
     },
 
     circle: function(x, y, r, col) {
+       
         POP.ctx.fillStyle = col;
         POP.ctx.beginPath();
         POP.ctx.arc(x + 5, y + 5, r, 0,  Math.PI * 2, true);
         POP.ctx.closePath();
         POP.ctx.fill();
+        
+        
     },
+    coin: function(x, y, r, col) {
+         /*
+        If the bubble generated is the coin (the sinusoidal bubbles popping out of the bottom!
+        make it distinct and have an option to make it look different.
+        */
+        var grd=POP.ctx.createRadialGradient(x+5,y+5,1,x+5,y+5,r);
+            grd.addColorStop(0,"rgba(125,126,125,1)");
+            grd.addColorStop(1,"rgba(14,14,14,1)");
 
-
+            // Fill with gradient
+            
+            POP.ctx.beginPath();
+            POP.ctx.arc(x + 5, y + 5, r, 0,  Math.PI * 2, true);
+            POP.ctx.fillStyle=grd;
+            POP.ctx.closePath();
+            
+            POP.ctx.fill();
+    },
     text: function(string, x, y, size, col) {
         POP.ctx.font = 'bold '+size+'px Monospace';
         POP.ctx.fillStyle = col;
         POP.ctx.fillText(string, x, y);
+    },
+    heart: function(x, y, r, col){
+        w=x;
+        h=y;
+        POP.ctx.strokeStyle = "#000000";
+        POP.ctx.strokeWeight = 1;
+//        POP.ctx.shadowOffsetX = x-10;
+//        POP.ctx.shadowOffsetY = y-10;
+        POP.ctx.lineWidth = 10.0;
+        POP.ctx.fillStyle = "RED";
+        var d = Math.min(w, h);
+        var k = r;
+
+        POP.ctx.moveTo(k, k + d / 4);
+        POP.ctx.quadraticCurveTo(k, k, k + d / 4, k);
+        POP.ctx.quadraticCurveTo(k + d / 2, k, k + d / 2, k + d / 4);
+        POP.ctx.quadraticCurveTo(k + d / 2, k, k + d * 3/4, k);
+        POP.ctx.quadraticCurveTo(k + d, k, k + d, k + d / 4);
+        POP.ctx.quadraticCurveTo(k + d, k + d / 2, k + d * 3/4, k + d * 3/4);
+        POP.ctx.lineTo(k + d / 2, k + d);
+        POP.ctx.lineTo(k + d / 4, k + d * 3/4);
+        POP.ctx.quadraticCurveTo(k, k + d / 2, k, k + d / 4);
+        POP.ctx.stroke();
+        POP.ctx.fill();
+        
     }
 
 };
@@ -422,7 +476,7 @@ POP.Bubble = function() {
 
     this.render = function() {
 
-        POP.Draw.circle(this.x, this.y, this.r, 'rgba(255,255,255,1)');
+        POP.Draw.coin(this.x, this.y, this.r, 'rgba(255,255,255,1)');
     };
 
 };
