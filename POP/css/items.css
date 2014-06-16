@@ -12,6 +12,10 @@ body {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
 }
 
+#body{
+ background-image: url('../img/wood.jpg');   
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: #222;
     font-weight: 600;
