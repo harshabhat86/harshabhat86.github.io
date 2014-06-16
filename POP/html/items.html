@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 <!--		<script src="js/jquery.min.js"></script>-->
-		  
+		  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
           <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
           <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 			<link rel="stylesheet" href="../css/items.css" />
@@ -17,27 +17,20 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 	</head>
-	<body id="body">
-        
-        <div id="container">
-        <div id="gameTitle">
-        
-            POP
-            
-        </div>
-            
-        <div id="panels">
-            
-            
-            
-        </div>
-            
-        <div id="footer">
-        
-            Footer
-        </div>    
-            
-        </div>
-    
-    </body>
+    <body
+	<div data-role="page">
+
+	<div data-role="header">
+		<h1>Page Title</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>Page content goes here.</p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+</body>
     </html>
