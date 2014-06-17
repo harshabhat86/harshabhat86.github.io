@@ -12,7 +12,7 @@ body {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
 }
 
-#body{
+#container{
  background-image: url('../img/wood.jpg');   
 }
 
