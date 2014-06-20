@@ -1,15 +1,34 @@
 *{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: normal;
-    color: #ffffff;
-
+    /*color: #ffffff;*/
+    display: block;
     /*padding: ;*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
 }
 
 body {
-    background: url("../img/wood.jpg");
+
+    background-image: url('../img/wood.jpg');
+    margin: 0 auto;
+    padding: 2em 2em 4em;
+    max-width: 800px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    line-height: 1.5em;
+    color: #545454;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+}
+
+#container{
+    margin-left: 46%;
+
 }
 
 #container .aboutGame{
@@ -20,11 +39,76 @@ body {
     border: 1px solid #ffffff;
     display:inline-block;
     padding-top:5px;
-    opacity:0.5;
+    opacity:0.5
     box-shadow: 10px 10px 5px #050505;
     background: url('../img/wood.jpg');
     box-shadow: 10px 10px 5px #070404;
-    margin-left: 45%;
     margin-top: 20%;
+    color: #ffffff;
 
+}
+#container .aboutGame:hover{
+    border: 2px solid #ffffff;
+    font-weight: bold;
+
+}
+
+
+.flp div {
+    position: relative;
+    margin-top: 10%;
+    /*padding: 0 50px;*/
+    /*margin-bottom: 30px;*//*Let's place the label over the input*/
+
+}
+
+.flp input, .flp label {
+
+    width: 180px;
+    display: block;
+    line-height: 24px;
+    /*fixed height for FF line height issue.*/
+    /*height = 24(lineheight) + 10*2(padding) + 2(border)*/
+    /*height: 35px;*/
+    border: 1px solid #999;
+    font: inherit;
+    color: #000000;
+
+}
+
+.flp input {
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+    /*margin-top: 5%;*/
+    /*border-radius: 5px 5px 5px 5px;*/
+}
+
+.flp label {
+    position: absolute; left: 0; top: 0;
+    /*left/right padding will be 2px less, adjusted by padding on ch*/
+    padding: 10px 60px;
+    border-color: transparent;
+    /*color: #666;*/
+    cursor: text;
+}
+
+/*label styles*/
+.ch {
+    display: block; float: left;
+    position: relative; /*for upward animation*/
+    /*background: white;*/
+    /*color: red;*/
+    /*border: 1px solid #000000;*/
+
+    border-color: transparent;
+}
+
+.ch:first-child {padding-left: 2px;}
+.ch:last-child {padding-right: 2px;}
+
+/*active input label*/
+.focussed{
+    /*when any input is already focussed clicking on it(label) again won't do anything*/
+    pointer-events: none;
 }
