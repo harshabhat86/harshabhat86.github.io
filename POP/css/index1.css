@@ -19,3 +19,7 @@ body {
 .woodButton{
  background-image: url('../img/woodBtn.png');
 }
+
+#name{
+ text-align: center;   
+}
