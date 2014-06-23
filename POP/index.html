@@ -464,7 +464,7 @@ POP.Bubble = function() {
     spd=POP.Level[POP.currentLevel].spd;
     wave = POP.Level[POP.currentLevel].wave;
     
-    console.log("Level"+POP.currentLevel+" Speed:"+spd+" Wave:"+wave);
+    
     this.type = 'bubble';
     this.r = (Math.random() * 20) + 10;
     this.speed = (Math.random() * spd) + 1;
@@ -557,18 +557,19 @@ POP.Particle = function(x, y,r, col) {
 };
 POP.Level = {
     
-                    1:{spd:3,wave:5},
-                    2:{spd:5,wave:8},
-                    3:{spd:8,wave:10},
-                    4:{spd:8,wave:10},
-                    5:{spd:8,wave:10},
-                    6:{spd:8,wave:10},
-                    7:{spd:8,wave:10},
-                    8:{spd:8,wave:10},
-                    9:{spd:8,wave:10},
-                    10:{spd:8,wave:10},
-                    11:{spd:8,wave:10},
-                    12:{spd:8,wave:10}
+                    1:{spd:1,wave:3},
+                    2:{spd:1,wave:5},
+                    3:{spd:1,wave:8},
+                    4:{spd:2,wave:10},
+                    5:{spd:2,wave:12},
+                    6:{spd:2,wave:14},
+                    7:{spd:3,wave:15},
+                    8:{spd:3,wave:17},
+                    9:{spd:3,wave:19},
+                    10:{spd:3,wave:20},
+                    11:{spd:4,wave:20},
+                    12:{spd:4,wave:22},
+                    13:{spd:4,wave:23}
                  
    };
 
