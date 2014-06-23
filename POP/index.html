@@ -70,6 +70,7 @@ var POP = {
     ua:  null,
     android: null,
     ios:  null,
+    currentLevel:1,
 
     init: function() {
    
@@ -194,7 +195,7 @@ var POP = {
             // put a new instance of bubble into our entities array
             POP.entities.push(new POP.Bubble());
             // reset the counter with a random value
-            POP.nextBubble = ( Math.random() * 100 ) + 100;
+            POP.nextBubble = ( Math.random() * 1 ) + 100;
         }
 
         // spawn a new instance of Touch
@@ -285,6 +286,19 @@ var POP = {
         POP.Draw.text('Hit: ' + POP.score.hit, 20, 30, 14, '#fff');
         POP.Draw.text('Escaped: ' + POP.score.escaped, 20, 50, 14, '#fff');
         POP.Draw.text('Accuracy: ' + POP.score.accuracy + '%', 20, 70, 14, '#fff');
+        
+        /*
+        This is only for test. Harsha bhat
+        
+        */
+        if (POP.score.hit==5)
+        {
+            POP.currentLevel+=1;
+            alert("Congrats! Next level now!!!"+POP.currentLevel);
+            POP.score.hit =0;
+            POP.loop();
+            
+        }
 
     },
 
@@ -295,7 +309,7 @@ var POP = {
     // and render
     loop: function() {
 
-        requestAnimFrame( POP.loop );
+        requestAnimFrame( POP.loop);
 
         POP.update();
         POP.render();
@@ -447,16 +461,20 @@ POP.Bubble = function() {
     Make it dynamic and modular.
     
     */
+    spd=POP.Level[POP.currentLevel].spd;
+    wave = POP.Level[POP.currentLevel].wave;
+    
+    console.log("Level"+POP.currentLevel+" Speed:"+spd+" Wave:"+wave);
     this.type = 'bubble';
     this.r = (Math.random() * 20) + 10;
-    this.speed = (Math.random() * 3) + 1;
+    this.speed = (Math.random() * spd) + 1;
  
     this.x = (Math.random() * (POP.WIDTH) - this.r);
-    this.y = POP.HEIGHT + (Math.random() * 100) + 100;
+    this.y = POP.HEIGHT + (Math.random() * 10) + 100;
 
     // the amount by which the bubble
     // will move from side to side
-    this.waveSize = 5 + this.r;
+    this.waveSize = wave + this.r;
     // we need to remember the original
     // x position for our sine wave calculation
     this.xConstant = this.x;
@@ -537,6 +555,22 @@ POP.Particle = function(x, y,r, col) {
     };
 
 };
+POP.Level = {
+    
+                    1:{spd:3,wave:5},
+                    2:{spd:5,wave:8},
+                    3:{spd:8,wave:10},
+                    4:{spd:8,wave:10},
+                    5:{spd:8,wave:10},
+                    6:{spd:8,wave:10},
+                    7:{spd:8,wave:10},
+                    8:{spd:8,wave:10},
+                    9:{spd:8,wave:10},
+                    10:{spd:8,wave:10},
+                    11:{spd:8,wave:10},
+                    12:{spd:8,wave:10}
+                 
+   };
 
 window.addEventListener('load', POP.init, false);
 window.addEventListener('resize', POP.resize, false);
