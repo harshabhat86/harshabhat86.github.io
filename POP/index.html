@@ -467,6 +467,7 @@ POP.Bubble = function() {
     */
     spd=POP.Level[POP.currentLevel].spd;
     wave = POP.Level[POP.currentLevel].wave;
+    sine = POP.Level[POP.currentLevel].sine;
     
     
     this.type = 'bubble';
@@ -493,7 +494,7 @@ POP.Bubble = function() {
 
         this.y -= this.speed;
         // the x coord to follow a sine wave
-        this.x = this.waveSize * Math.sin(time) + this.xConstant;
+        this.x = this.waveSize* Math.sin(time) + this.xConstant;
 
         // if offscreen flag for removal
         if (this.y < -10) {
@@ -561,19 +562,19 @@ POP.Particle = function(x, y,r, col) {
 };
 POP.Level = {
     
-                    1:{spd:1,wave:1},
-                    2:{spd:1,wave:2},
-                    3:{spd:1,wave:5},
-                    4:{spd:2,wave:7},
-                    5:{spd:2,wave:12},
-                    6:{spd:2,wave:14},
-                    7:{spd:3,wave:15},
-                    8:{spd:3,wave:17},
-                    9:{spd:3,wave:19},
-                    10:{spd:3,wave:20},
-                    11:{spd:4,wave:20},
-                    12:{spd:4,wave:22},
-                    13:{spd:4,wave:23}
+                    1:{spd:1,wave:1,sine:1},
+                    2:{spd:1,wave:2,sine:1.5},
+                    3:{spd:1,wave:5,sine:2},
+                    4:{spd:2,wave:7,sine:2.5},
+                    5:{spd:2,wave:12,sine:3},
+                    6:{spd:2,wave:14,sine:3.5},
+                    7:{spd:3,wave:15,sine:4},
+                    8:{spd:3,wave:17,sine:4},
+                    9:{spd:3,wave:19,sine:1},
+                    10:{spd:3,wave:20,sine:1},
+                    11:{spd:4,wave:20,sine:1},
+                    12:{spd:4,wave:22,sine:1},
+                    13:{spd:4,wave:23,sine:1}
                  
    };
 
