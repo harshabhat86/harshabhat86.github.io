@@ -1,3 +1,5 @@
+/*@import url("http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css");*/
+
 body {
     background-image: url('../img/wood.jpg');
     margin: 0 auto;
@@ -13,11 +15,20 @@ body {
 }
 
 #container{
- background-image: url('../img/wood.jpg');   
+ background-image: url('../img/wood.jpg');
 }
 
-.woodButton{
- background-image: url('../img/woodBtn.png');
+.woodButton
+{
+    font-family: "Helvetica Neue", Helvetica , Arial, sans-serif;
+    font-size: 16px ;
+    background-image: url('../img/wood.jpg');
+    border-radius: 10px 10px 10px 10px;
+    border: 2px outset #ffffff;
+    opacity:0.5;
+    box-shadow: 10px 10px 5px #050505;
+    color: #ffffff;
+
 }
 
 #name{
