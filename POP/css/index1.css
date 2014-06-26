@@ -16,10 +16,10 @@ body {
 }
 
 #container{
- background-image: url('../img/woodBtn.png');
+ background-image: url('../img/wood.jpg');
 }
 
-<<<<<<< HEAD
+
 .woodButton{
  background-image: url('../img/wood.jpg');
 =======
@@ -31,7 +31,7 @@ body {
     opacity:0.5;
     box-shadow: 10px 10px 5px #050505;
     color: #ffffff;
->>>>>>> 5898d442ecad43acd93224bdb9baa29e8c534088
+
 }
 
 #name{
