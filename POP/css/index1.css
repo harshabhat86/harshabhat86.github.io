@@ -1,3 +1,5 @@
+/*@import url("http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css");*/
+
 body {
     background-image: url('../img/wood.jpg');
     margin: 0 auto;
@@ -5,6 +7,7 @@ body {
     max-width: 800px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
+    font: normal;
     line-height: 1.5em;
     color: #545454;
     -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
@@ -13,13 +16,100 @@ body {
 }
 
 #container{
- background-image: url('../img/wood.jpg');   
+ background-image: url('../img/woodBtn.png');
 }
 
+<<<<<<< HEAD
 .woodButton{
  background-image: url('../img/wood.jpg');
+=======
+.ui-content .woodButton
+{
+    background-image: url('../img/wood.jpg');
+    border-radius: 10px 10px 10px 10px;
+    border: 2px outset #ffffff;
+    opacity:0.5;
+    box-shadow: 10px 10px 5px #050505;
+    color: #ffffff;
+>>>>>>> 5898d442ecad43acd93224bdb9baa29e8c534088
 }
 
 #name{
  text-align: center;   
 }
+
+.flp div {
+    position: relative;
+
+}
+
+.flp input, .flp label {
+
+    display: block;
+    line-height: 24px;
+    /*fixed height for FF line height issue.*/
+    /*height = 24(lineheight) + 10*2(padding) + 2(border)*/
+    height: 46px;
+    border: 1px solid #999;
+    color: #000000;
+
+}
+
+.flp input {
+    padding: 10px;
+    outline: none;
+ }
+
+.flp input:focus{
+    box-shadow: 0px 0px 20px 3px #f0f0f0;
+}
+
+.flp label {
+    position: absolute; left: 47%;top:10%;
+    /*left/right padding will be 2px less, adjusted by padding on ch*/
+
+    padding: 10px 8px;
+    border-color: transparent;
+    color: #666;
+    cursor: text;
+}
+
+/*label styles*/
+.ch {
+    display: block;
+    float: left;
+    position: relative;/* for upward animation*/
+    /*color: red;*/
+    /*border: 1px solid #000000;*/
+    /*border-color: transparent;*/
+}
+
+.ch:first-child {padding-left: 2px;}
+.ch:last-child {padding-right: 2px;}
+
+/*active input label*/
+/*.focussed{*/
+    /*when any input is already focussed clicking on it(label) again won't do anything*/
+    /*pointer-events: none;*/
+    /*color:green;*/
+/*}*/
+
+/*for Play button*/
+/*#container .play{*/
+    /*height:40px;*/
+    /*width:180px;*/
+    /*border-radius: 10px 10px 10px 10px;*/
+    /*border: 2px outset #ffffff;*/
+    /*display:inline-block;*/
+    /*opacity:0.5;*/
+    /*box-shadow: 10px 10px 5px #050505;*/
+    /*background: url('../img/wood.jpg');*/
+    /*margin-top: 10%;*/
+    /*color: #ffffff;*/
+
+
+/*}*/
+
+/*#container .play:hover {*/
+    /*border: 3px solid #ffffff;*/
+/*}*/
