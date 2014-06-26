@@ -19,11 +19,6 @@ body {
  background-image: url('../img/wood.jpg');
 }
 
-
-.woodButton{
- background-image: url('../img/wood.jpg');
-}
-=======
 .ui-content .woodButton
 {
     background-image: url('../img/wood.jpg');
@@ -32,7 +27,6 @@ body {
     opacity:0.5;
     box-shadow: 10px 10px 5px #050505;
     color: #ffffff;
-
 }
 
 #name{
@@ -89,28 +83,9 @@ body {
 .ch:last-child {padding-right: 2px;}
 
 /*active input label*/
-/*.focussed{*/
+.focussed{
     /*when any input is already focussed clicking on it(label) again won't do anything*/
-    /*pointer-events: none;*/
-    /*color:green;*/
-/*}*/
+    pointer-events: none;
+    color:green;
+}
 
-/*for Play button*/
-/*#container .play{*/
-    /*height:40px;*/
-    /*width:180px;*/
-    /*border-radius: 10px 10px 10px 10px;*/
-    /*border: 2px outset #ffffff;*/
-    /*display:inline-block;*/
-    /*opacity:0.5;*/
-    /*box-shadow: 10px 10px 5px #050505;*/
-    /*background: url('../img/wood.jpg');*/
-    /*margin-top: 10%;*/
-    /*color: #ffffff;*/
-
-
-/*}*/
-
-/*#container .play:hover {*/
-    /*border: 3px solid #ffffff;*/
-/*}*/
