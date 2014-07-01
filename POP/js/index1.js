@@ -15,6 +15,7 @@ $(function () {
     })
 
     var d,i;
+    i=40;
 //animation time
     $(".flp input").focus(function(){
         //calculate movement for .ch = half of input height
