@@ -22,7 +22,7 @@ body {
 .ui-content .woodButton
 {
     background-image: url('../img/wood.jpg');
-    border-radius: 1em 1em 1em 1em;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
     border: 0.2em outset #ffffff;
     opacity:0.5;
     box-shadow: 1em 1em 0.5em #050505;
