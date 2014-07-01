@@ -22,7 +22,7 @@ $(function () {
         //label = next sibling of input
         //to prevent multiple animation trigger by mistake we will use .stop() before animating any character and clear any animation queued by .delay()
 
-        $(this).next().addClass("focussed").children().stop(true).each(function(i){
+        $(".flp label").addClass("focussed").children().stop(true).each(function(i){
             d = i*50;//delay
             $(this).delay(d).animate({top: tm}, 200, 'easeOutBack');
         })
