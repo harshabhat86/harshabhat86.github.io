@@ -57,7 +57,7 @@ body {
 
 
 .flp label {
-    position: absolute; left: 0.45em;top:10%;
+    position: absolute; left: 47%;top:10%;
     /*left/right padding will be 2px less, adjusted by padding on ch*/
 
     padding: 0.625em 0.5em;
@@ -76,8 +76,8 @@ body {
     /*border-color: transparent;*/
 }
 
-.ch:first-child {padding-left: 0.125px;}
-.ch:last-child {padding-right: 0.125px;}
+.ch:first-child {padding-left: 0.125em;}
+.ch:last-child {padding-right: 0.125em;}
 
 /*active input label*/
 .focussed{
