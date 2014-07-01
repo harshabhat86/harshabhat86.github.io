@@ -41,29 +41,26 @@ body {
 .flp input, .flp label {
 
     display: block;
-    line-height: 24px;
+    line-height: 1.5em;
     /*fixed height for FF line height issue.*/
     /*height = 24(lineheight) + 10*2(padding) + 2(border)*/
-    height: 46px;
-    border: 1px solid #999;
+    height: 2.875em;
+    border: 0.063px solid #999;
     color: #000000;
 
 }
 
 .flp input {
-    padding: 10px;
+    padding: 0.625px;
     outline: none;
  }
 
-.flp input:focus{
-    box-shadow: 0px 0px 20px 3px #f0f0f0;
-}
 
 .flp label {
     position: absolute; left: 47%;top:10%;
     /*left/right padding will be 2px less, adjusted by padding on ch*/
 
-    padding: 10px 8px;
+    padding: 0.625em 0.5em;
     border-color: transparent;
     color: #666;
     cursor: text;
@@ -79,8 +76,8 @@ body {
     /*border-color: transparent;*/
 }
 
-.ch:first-child {padding-left: 2px;}
-.ch:last-child {padding-right: 2px;}
+.ch:first-child {padding-left: 0.125px;}
+.ch:last-child {padding-right: 0.125px;}
 
 /*active input label*/
 .focussed{
