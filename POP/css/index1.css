@@ -23,9 +23,9 @@ body {
 {
     background-image: url('../img/wood.jpg');
     border-radius: 1em 1em 1em 1em;
-    border: 2em outset #ffffff;
+    border: 0.2em outset #ffffff;
     opacity:0.5;
-    box-shadow: 10em 1em 0.5em #050505;
+    box-shadow: 1em 1em 0.5em #050505;
     color: #ffffff;
 }
 
