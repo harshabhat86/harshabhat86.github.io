@@ -31,7 +31,7 @@ $(function () {
         //animate the label down if content of the input is empty
         if($(this).val() == "")
         {
-            $(this).next().removeClass("focussed").children().stop(true).each(function(i){
+             $(".flp label").removeClass("focussed").children().stop(true).each(function(i){
                 d = i*50;
                 $(this).delay(d).animate({top: 0}, 500, 'easeInOutBack');
             })
