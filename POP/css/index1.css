@@ -60,7 +60,7 @@ body {
 }
 
 .flp label {
-    position: absolute;
+    position: absolute; top:10%;
     /*left/right padding will be 2px less, adjusted by padding on ch*/
 
     padding: 10px 8px;
