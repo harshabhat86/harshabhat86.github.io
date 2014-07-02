@@ -17,5 +17,11 @@ body {
 }
 
 .woodButton{
- background-image: url('../img/woodBtn.png');
+    background-image: url('../img/wood.jpg');
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    border: 0.15em outset #ffffff;
+    opacity:0.5;
+    box-shadow: 1em 1em 0.5em #050505;
+    color: #ffffff !important;
+    font-weight: normal !important;
 }
