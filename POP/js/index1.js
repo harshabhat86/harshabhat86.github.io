@@ -19,7 +19,7 @@ $(function () {
 //animation time
     $(".flp input").focus(function(){
         //calculate movement for .ch = half of input height
-        var tm = $(this).outerHeight()/2 *-1 + "px";
+        var tm = $(this).outerHeight()/1 *-1 + "px";
         //label = next sibling of input
         //to prevent multiple animation trigger by mistake we will use .stop() before animating any character and clear any animation queued by .delay()
 
