@@ -64,7 +64,9 @@ var POP = {
         taps: 0,
         hit: 0,
         escaped: 0,
-        accuracy: 0
+        accuracy: 0,
+        finalScore: 0
+        
     },
     // we'll set the rest of these
     // in the init function
@@ -289,7 +291,7 @@ var POP = {
         }
 
         // display scores
-        POP.Draw.text('Hit: ' + POP.score.hit, 20, 30, 14, '#000');
+        POP.Draw.text('Hit: ' + POP.score.finalScore, 20, 30, 14, '#000');
         POP.Draw.text('Escaped: ' + POP.score.escaped, 20, 50, 14, '#fff');
         POP.Draw.text('Accuracy: ' + POP.score.accuracy + '%', 20, 70, 14, '#fff');
         
@@ -301,7 +303,10 @@ var POP = {
         {
             POP.currentLevel+=1;
 //            alert("Congrats! Next level now!!!"+POP.currentLevel);
-            POP.score.hit =10;
+            POP.score.finalScore+=POP.score.hit;
+            POP.score.hit =0;
+            
+            
             POP.loop();
             
         }
