@@ -289,7 +289,7 @@ var POP = {
         }
 
         // display scores
-        POP.Draw.text('Hit: ' + POP.score.hit, 20, 30, 14, '#fff');
+        POP.Draw.text('Hit: ' + POP.score.hit, 20, 30, 14, '#000');
         POP.Draw.text('Escaped: ' + POP.score.escaped, 20, 50, 14, '#fff');
         POP.Draw.text('Accuracy: ' + POP.score.accuracy + '%', 20, 70, 14, '#fff');
         
@@ -297,11 +297,11 @@ var POP = {
         This is only for test. Harsha bhat
         
         */
-        if (POP.score.hit==5)
+        if (POP.score.hit==POP.Level[POP.currentLevel].lvlChange)
         {
             POP.currentLevel+=1;
-            alert("Congrats! Next level now!!!"+POP.currentLevel);
-            POP.score.hit =0;
+//            alert("Congrats! Next level now!!!"+POP.currentLevel);
+            POP.score.hit =10;
             POP.loop();
             
         }
@@ -564,19 +564,19 @@ POP.Particle = function(x, y,r, col) {
 };
 POP.Level = {
     
-                    1:{spd:1,wave:1,sine:1},
-                    2:{spd:1,wave:2,sine:1.5},
-                    3:{spd:1,wave:5,sine:2},
-                    4:{spd:2,wave:7,sine:2.5},
-                    5:{spd:2,wave:12,sine:3},
-                    6:{spd:2,wave:14,sine:3.5},
-                    7:{spd:3,wave:15,sine:4},
-                    8:{spd:3,wave:17,sine:4},
-                    9:{spd:3,wave:19,sine:1},
-                    10:{spd:3,wave:20,sine:1},
-                    11:{spd:4,wave:20,sine:1},
-                    12:{spd:4,wave:22,sine:1},
-                    13:{spd:4,wave:23,sine:1}
+                    1:{spd:1,wave:1,sine:1,lvlChange:10},
+                    2:{spd:1,wave:1,sine:1.5,lvlChange:10},
+                    3:{spd:1,wave:1,sine:2,lvlChange:10},
+                    4:{spd:2,wave:1,sine:1,lvlChange:10},
+                    5:{spd:2,wave:1,sine:2,lvlChange:10},
+                    6:{spd:2,wave:2,sine:2.5,lvlChange:10},
+                    7:{spd:3,wave:15,sine:4,lvlChange:10},
+                    8:{spd:3,wave:17,sine:4,lvlChange:10},
+                    9:{spd:3,wave:19,sine:1,lvlChange:10},
+                    10:{spd:3,wave:20,sine:1,lvlChange:10},
+                    11:{spd:4,wave:20,sine:1,lvlChange:10},
+                    12:{spd:4,wave:22,sine:1,lvlChange:10},
+                    13:{spd:4,wave:23,sine:1,lvlChange:10}
                  
    };
 
