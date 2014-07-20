@@ -20,18 +20,6 @@ canvas { display: block; margin: 0 auto; background: #fff; }
 <body>
 <canvas></canvas>
 
-    
-<div data-role="popup" id="transitionExample" data-overlay-theme="a" data-theme="a" style="max-width:400px;" class="ui-corner-all ui-popup ui-body-a ui-overlay-shadow">
-			<div data-role="header" data-theme="a" class="ui-corner-top ui-header ui-bar-a" role="banner">
-				<h1 class="ui-title" role="heading" aria-level="1">Game Over :-(</h1>
-			</div>
-			<div role="main" class="ui-corner-bottom ui-content">
-				<h3 class="ui-title">But you have done great!! </h3>
-				<p>Choose the options </p>
-				<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="a" class="ui-link ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" role="button">Start Over</a>
-				<a href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b" class="ui-link ui-btn ui-btn-b ui-btn-inline ui-shadow ui-corner-all" role="button">Exit</a>
-			</div>
-</div>
 <script>
 
 /*
@@ -328,7 +316,8 @@ var POP = {
            {   
                 //alert("OOPs! You are a lazy bum!!!! Try Harder, Try till you succeed");
                 console.log("Showing $.mobile.changePage");
-                $.mobile.changePage( "#transitionExample", { role: "dialog" } );
+                $.mobile.changePage('html/popup.html', {transition: 'pop', role: 'dialog'});
+               
                console.log("END Showing $.mobile.changePage");
                 POP.over = true;
            }
@@ -368,6 +357,7 @@ var POP = {
         if (POP.over)
         {
             $.mobile.changePage( "#transitionExample", { role: "dialog" } );
+            
             //window.open('html/landing.html',"_self");
         }
         requestAnimFrame( POP.loop);
@@ -619,7 +609,7 @@ POP.Particle = function(x, y,r, col) {
 };
 POP.Level = {
     
-                    1:{spd:1,wave:1,sine:1,lvlChange:10,escape:10},
+                    1:{spd:1,wave:1,sine:1,lvlChange:10,escape:3},
                     2:{spd:1,wave:1,sine:1.5,lvlChange:10,escape:150},
                     3:{spd:1,wave:1,sine:2,lvlChange:10,escape:200},
                     4:{spd:2,wave:1,sine:1,lvlChange:10,escape:300},
