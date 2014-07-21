@@ -20,9 +20,20 @@ canvas { display: block; margin: 0 auto; background: #fff; }
 <body>
     
 <canvas></canvas>
+    
+
+    <div data-role="popup" id="form" class="ui-content" data-theme="a" data-overlay-theme="a">
+			<div name="sampleform">
+                <p id="sorryMessage">We are so sorry. You are only as good as the quickest set of taps.</p>
+                <p id="practise">Let us assure you, practise makes you perfect. And it isn't that difficult.</p>
+				<a href="index.html"  class="ui-btn ui-corner-all woodButton" data-transition="slidedown">Start Over Again</a>
+                <a href="html/landing.html"  class="ui-btn ui-corner-all woodButton" data-transition="slidedown">Exit</a>
+                
+			</form>
+		</div>
 
 <script>
-$.mobile.ajaxEnabled = true;
+
 /*
 pop.update is the function where all the things happen. Make sure that function is intact and scrap the rest!!
 :-)
@@ -315,11 +326,8 @@ var POP = {
         {
            if (!POP.over)
            {   
-                //alert("OOPs! You are a lazy bum!!!! Try Harder, Try till you succeed");
-                console.log("Showing $.mobile.changePage");
-                $.mobile.changePage('html/popup.html', {transition: 'pop', role: 'dialog'});
+                //$.mobile.changePage('html/popup.html', {transition: 'pop', role: 'dialog'});
                
-               console.log("END Showing $.mobile.changePage");
                 POP.over = true;
            }
             
@@ -357,7 +365,8 @@ var POP = {
     loop: function() {
         if (POP.over)
         {
-            $.mobile.changePage( "#transitionExample", { role: "dialog" } );
+            $( "#form" ).popup("open");
+               return;
             
             //window.open('html/landing.html',"_self");
         }
