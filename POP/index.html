@@ -26,8 +26,8 @@ canvas { display: block; margin: 0 auto; background: #fff; }
 			<div name="sampleform">
                 <p id="sorryMessage">We are so sorry. You are only as good as the quickest set of taps.</p>
                 <p id="practise">Let us assure you, practise makes you perfect. And it isn't that difficult.</p>
-				<a href="index.html"  class="ui-btn ui-corner-all woodButton" data-transition="slidedown">Start Over Again</a>
-                <a href="html/landing.html"  class="ui-btn ui-corner-all woodButton" data-transition="slidedown">Exit</a>
+				<a  id="popupRestartGame" class="ui-btn ui-corner-all woodButton" data-transition="slidedown">Start Over Again</a>
+                <a  id="popupExit" class="ui-btn ui-corner-all woodButton" data-transition="slidedown">Exit</a>
                 
 			</form>
 		</div>
@@ -61,6 +61,34 @@ window.requestAnimFrame = (function(){
             window.setTimeout(callback, 1000 / 60);
           };
 })();
+    
+    
+/*
+Some JQM functions to handle popups.
+
+*/
+    $(document).on("pagecreate", function () {
+        
+    $("#popupRestartGame").on("tap", function () {
+        alert("Hi Tapped a Button clicked.");
+        /* do something */
+        $("#form").popup({
+            afterclose: function () {
+                alert("Hi 1 restart clicked.");
+              $.mobile.navigate( "index.html" );
+            }
+        }, "close");
+    });
+        $("#popupExit").on("tap", function () {
+        /* do something */
+        $("#form").popup({
+            afterclose: function () {
+                alert("Hi  Exit clicked.");
+              $.mobile.navigate( "html/landing.html" );
+            }
+        }, "close");
+    });
+});
 
 // namespace our game
 var POP = {
