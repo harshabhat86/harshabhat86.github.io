@@ -69,7 +69,7 @@ Some JQM functions to handle popups.
 */
     $(document).on("pagecreate", function () {
         
-    $("#popupRestartGame").on("tap", function () {
+    $("#popupRestartGame").on("click", function () {
         
         /* do something */
         $("#form").popup({
@@ -79,7 +79,7 @@ Some JQM functions to handle popups.
             }
         }, "close");
     });
-        $("#popupExit").on("tap", function () {
+        $("#popupExit").on("click", function () {
         /* do something */
         $("#form").popup({
             beforeclose: function () {
