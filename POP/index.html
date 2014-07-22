@@ -82,7 +82,7 @@ Some JQM functions to handle popups.
         $("#popupExit").on("tap", function () {
         /* do something */
         $("#form").popup({
-            afterclose: function () {
+            beforeclose: function () {
                 alert("Hi  Exit clicked.");
               $.mobile.navigate( "html/landing.html" );
             }
