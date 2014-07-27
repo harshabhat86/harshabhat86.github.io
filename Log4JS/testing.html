@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="">
+    
+    <script>
+    
+function x (){        
+    log4js.log( 'A simple log' );
+    log4js.error( 'Error is in RED' );
+    log4js.warning( 'Warnings are in Orange' );
+    log4js.message( 'Messages are in Green' );
+    log4js.message( log4js.domElement.childNodes,1); 
+}
+        
+    
+    </script>
+</head>
+
+<body onload="x();">
+    
+    <script src="Log4js.js"></script>
+    <script>
+    var log4js = new Log4js();
+    
+            </script>
+    
+    <input id="testField" onBlur = "log();"/>
+    
+    
+    
+</body>
+</html>
