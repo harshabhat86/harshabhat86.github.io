@@ -40,7 +40,7 @@ var NoteUser = Parse.Object.extend("NoteUser");
 
 
 function signinCallback(authResult) {
-	  if (authResult['status']['signed_in'] && googleClicked==1) {
+	  if (authResult['status']['signed_in'] && googleClicked===1) {
 	    // Update the app to reflect a signed in user
 	    // Hide the sign-in button now that the user is authorized, for example:
 	    document.getElementById('customBtn').setAttribute('style', 'display: none');
@@ -88,7 +88,7 @@ function createUser()
 	noteUser.save(
 					{
 
-						noteUserId : window.username,
+						noteUserId : window.username
 						
 					},
 					{
@@ -118,7 +118,7 @@ function getUser(){
 				/* We become free of Parse after this method. */
 				success : function(results) {
 					console.log("after return:"+window.username);
-					if (results.length ==0){
+					if (results.length ===0){
 						createUser(window.username);
 					}
 					else
@@ -149,7 +149,7 @@ function queryUser()
 	query.equalTo('username',usernm);  // find all the women
 	query.find({
 	  success: function(user) {
-	    if (user.length==0)
+	    if (user.length===0)
 	    	{
 	    		userSignup();
 	    	}
@@ -194,6 +194,7 @@ function userLogin(){
 			  getUser();
 		  },
 		  error: function(user, error) {
+              console.error("Login Failed!");
 		    // The login failed. Check error to see why.
 		  }
 		});
@@ -205,8 +206,9 @@ var emailFlagRaised = 0;
 function emailCheck(obj) { 
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(!re.test(obj.value)){
-    	if (emailFlagRaised==0)	
+    	if (emailFlagRaised===0){	
     		alert('Invalid Email!Please enter a valid email address');
+        }
     		emailFlagRaised = 1;
     		obj.value='';
     		obj.focus();
@@ -218,8 +220,8 @@ function emailCheck(obj) {
 
 function passwordCheck()
 {
-	pass = document.getElementById('passwd').value;
-	if (passwd.length<6)
+	var pass = document.getElementById('passwd').value;
+	if (pass.length<6)
 		{
 			alert('Password should be atleast 6 characters long.');
 			return false;
