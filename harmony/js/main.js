@@ -419,11 +419,10 @@ function onMenuSave()
 
 function onMenuExportImage()
 {
-// window.open(canvas.toDataURL('image/png'),'mywindow');
+	// window.open(canvas.toDataURL('image/png'),'mywindow');
 	flatten();
-    var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    window.location.href = image;
-	//window.open(flattenCanvas.toDataURL('image/png'),'mywindow');}
+	window.open(flattenCanvas.toDataURL('image/png'),'mywindow');
+}
 
 function onMenuClear()
 {
