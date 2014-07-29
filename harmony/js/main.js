@@ -421,7 +421,7 @@ function onMenuExportImage()
 {
 	// window.open(canvas.toDataURL('image/png'),'mywindow');
 	flatten();
-	var image = flattenCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+	var image = flattenCanvas.toDataURL("image/png");
     window.location.href=image;
 //	window.open(flattenCanvas.toDataURL('image/png'),'mywindow');
 }
