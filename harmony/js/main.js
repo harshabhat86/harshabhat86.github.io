@@ -424,6 +424,7 @@ function onMenuExportImage()
 	var image = flattenCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
     //Content-Disposition: attachment; filename="MyFileName.ZIP"
     window.location.href=image;
+    
 //	window.open(flattenCanvas.toDataURL('image/png'),'mywindow');
 }
 
