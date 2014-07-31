@@ -251,7 +251,7 @@ NoteBook.prototype.getAllTags = function(){
 		tagArr = this.notes[i].getHashTag();
 		 for ( j =0;j< tagArr.length;j+=1)
 			 {
-			 	if (hashDict[tagArr[j]]===null)
+			 	if (hashDict[tagArr[j]]==null)
 			 		{
 			 			hashDict[tagArr[j]] = 1;
 			 		}
