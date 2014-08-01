@@ -21,7 +21,7 @@ document.onkeyup = function(e) {
 		     setHelpText('Hit the spacebar to start entering notes! That\'s the most accessible button according to us ;-)');
           }
 		  else{
-			if (document.activeElement.id === 'enterNotes' && document.activeElement.value==='' ){
+			if (document.activeElement.id === 'enterNotes' && document.activeElement.value=='' ){
 				  setHelpText('Start Typing !! BTW, did we tell you, we support #hashtags ??');
             }
           }
@@ -376,7 +376,7 @@ ANote.prototype.update = function() {
 
 ANote.prototype.destroy = function() {
 
-	if (this.id === ''){
+	if (this.id == ''){
 		return;
     }
 	var parseObj = new NoteObject(),nQuery;
@@ -474,7 +474,7 @@ var noteBook = new NoteBook();
 function editNote(id) {
 	var note = new ANote(),elem;
 	note = noteBook.getNote(id);
-	if (note === ''){
+	if (note == ''){
 		return;
     }
 
@@ -496,7 +496,7 @@ function resetEditNote() {
 function deleteNote(id) {
 	var note = new ANote();
 	note = noteBook.getNote(id);
-	if (note === ''){
+	if (note == ''){
 		return;
     }
 	note.destroy();
@@ -575,7 +575,7 @@ function keyDownTextField(e) {
 	tempNoteId = elem.getAttribute('data-noteid');
 	tempNoteEditing = elem.getAttribute('data-noteediting');
 	
-	if(elem.value==='')
+	if(elem.value=='')
 		{
 			setHelpText('');
 		}
@@ -595,7 +595,7 @@ function keyDownTextField(e) {
 		allTags = getHashTags(text);
 		owner = user;
 
-		if (tempNoteId === '' && tempNoteEditing === 'false') {
+		if (tempNoteId == '' && tempNoteEditing == 'false') {
 
 			note = new ANote();
 			note.init('', text, title, owner, allTags);
@@ -605,7 +605,7 @@ function keyDownTextField(e) {
 			note = new ANote();
 			note = window.noteBook.getNote(tempNoteId);
 			note.init(tempNoteId, text, title, owner, allTags);
-			if (note === ''){
+			if (note == ''){
 				return;
             }
 			note.update();
