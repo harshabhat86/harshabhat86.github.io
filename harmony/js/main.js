@@ -421,8 +421,8 @@ function onMenuExportImage()
 {
 	// window.open(canvas.toDataURL('image/png'),'mywindow');
 	flatten();
-	var image = flattenCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    window.location.href=image;
+	//var image = flattenCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    //window.location.href=image;
     
     /*
     HB: Trying to make this download/ export work in mobile devices especially android.
@@ -445,7 +445,9 @@ function onMenuExportImage()
          return res;
      }
     }
-    flattenCanvas.toDataURL("image/png");
+    //flattenCanvas.toDataURL("image/png");
+    var image = flattenCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href=image;
     
 //	window.open(flattenCanvas.toDataURL('image/png'),'mywindow');
 }
