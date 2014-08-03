@@ -422,8 +422,30 @@ function onMenuExportImage()
 	// window.open(canvas.toDataURL('image/png'),'mywindow');
 	flatten();
 	var image = flattenCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    //Content-Disposition: attachment; filename="MyFileName.ZIP"
     window.location.href=image;
+    
+    /*
+    HB: Trying to make this download/ export work in mobile devices especially android.
+    */
+    var tdu = flattenCanvas.toDataURL;
+    
+    flattenCanvas.toDataURL = function(type)
+    {
+     var res = tdu.apply(this,arguments);
+     //If toDataURL fails then we improvise
+     if(res.substr(0,6) == "data:i")
+     {
+      console.log("Result is:"+res);     
+      var encoder = new JPEGEncoder();
+      return encoder.encode(this.getContext("2d").getImageData(0,0,this.width,this.height), 90);
+     }    
+     else 
+     {
+         console.log("Returning res!! :-(");
+         return res;
+     }
+    }
+    flattenCanvas.toDataURL("image/png");
     
 //	window.open(flattenCanvas.toDataURL('image/png'),'mywindow');
 }
