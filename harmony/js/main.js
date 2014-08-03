@@ -446,7 +446,7 @@ function onMenuExportImage()
      }
     }
     //flattenCanvas.toDataURL("image/png");
-    var image = flattenCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    var image = flattenCanvas.toDataURL("image/png").replace("image/jpeg", "image/octet-stream");
     window.location.href=image;
     
 //	window.open(flattenCanvas.toDataURL('image/png'),'mywindow');
