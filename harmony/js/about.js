@@ -29,7 +29,7 @@ About.prototype =
 		
 		text = document.createElement("p");
 		text.style.textAlign = 'center';		
-		text.innerHTML = 'With <a href="https://github.com/nilium/harmony">modifications</a> for iPad friendliness by <a href="http://www.spifftastic.net">Noel Cower</a>';
+		text.innerHTML = 'With <a href="https://github.com/harshabhat86/harmony">modifications</a> for Android friendliness by <a href="http://github.com/harshabhat86">Harsha Bhat</a>';
 		containerText.appendChild(text);
 		
 		text = document.createElement("p");
