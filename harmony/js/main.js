@@ -96,7 +96,7 @@ function init()
 	menu.save.addEventListener('click', onMenuSave, false);
 //	menu.save.addEventListener('touchend', onMenuSave, false);
 	menu.exportImage.addEventListener('click', onMenuExportImage, false);
-//	menu.exportImage.addEventListener('touchend', onMenuExportImage, false);
+	menu.exportImage.addEventListener('touchend', onMenuExportImage, false);
 	menu.clear.addEventListener('click', onMenuClear, false);
 //	menu.clear.addEventListener('touchend', onMenuClear, false);
 	menu.about.addEventListener('click', onMenuAbout, false);
@@ -417,16 +417,31 @@ function onMenuSave()
 	saveToLocalStorage();
 }
 
+function base64ToAndroid(base64)
+{
+    Android.base64TobyteArray(base64);
+}
+
+function showToastMessage(toast,b64)
+{
+    Android.showToast(toast,b64);
+}
+
+
 function onMenuExportImage()
 {
 	// window.open(canvas.toDataURL('image/png'),'mywindow');
 	flatten();
-	//var image = flattenCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    //window.location.href=image;
+	var image = flattenCanvas.toDataURL("image/png");//.replace("image/png", "image/octet-stream");
+    showToastMessage("Image Saved",image);
+    base64ToAndroid(flattenCanvas.toDataURL("image/png"));
+    window.location.href=image;
     
     /*
     HB: Trying to make this download/ export work in mobile devices especially android.
     */
+   
+    /*
     var tdu = flattenCanvas.toDataURL;
     
     flattenCanvas.toDataURL = function(type)
@@ -447,7 +462,7 @@ function onMenuExportImage()
     }
     //flattenCanvas.toDataURL("image/png");
     var image = flattenCanvas.toDataURL("image/png").replace("image/jpeg", "image/octet-stream");
-    window.location.href=image;
+    */
     
 //	window.open(flattenCanvas.toDataURL('image/png'),'mywindow');
 }
@@ -470,7 +485,7 @@ function onMenuAbout()
 	cleanPopUps();
 
 	isAboutVisible = true;
-	about.show();
+	//about.show();
 }
 
 
