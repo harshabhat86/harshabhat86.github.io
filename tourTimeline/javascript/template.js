@@ -1,2 +1,2 @@
-$("#").click(function(){window.open("timeline/timeline.html","_self");})
+$(".tour").click(function(){window.open("timeline/timeline.html","_self");})
     
