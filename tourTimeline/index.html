@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Lake Tahoe</title>
+  <title>Tour Timeline|Login</title>
   <meta name="author" content="Harsha Bhat">
   <link rel="shortcut icon" href="../images/favicon.ico">
     
     <!-- Loading Bootstrap -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    
     
     <!-- Loading Flat UI -->
     <link href="css/flat-ui.css" rel="stylesheet">
@@ -22,11 +22,39 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
+    
+    
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="slide-nav">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+              <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="#">Tour Timeline</a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <ul class="nav navbar-nav">           
+              <li><a href="#fakelink">Explore Tours</a></li>
+              <li><a href="#fakelink">Learn More</a></li>
+              <li><a href="#fakelink">Who are we</a></li>
+              <li class="active"><a href="index.html">Sign Up/ Login</a></li>
+            </ul>           
+            <form class="navbar-form navbar-right" action="#" role="search">
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control" id="navbarInput-01" type="search" placeholder="Search Tours">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn"><span class="fui-search"></span></button>
+                  </span>            
+                </div>
+              </div>               
+            </form>
+          </div><!-- /.navbar-collapse -->
+        </nav>
     
 
     <div class="omb_login">
-    	<h3 class="omb_authTitle">Login or <a href="#">Sign up</a></h3>
+    	<h3 class="omb_authTitle">Login or <a href="signup.html">Sign up</a></h3>
 		<div class="row omb_row-sm-offset-3 omb_socialButtons">
     	    <div class="col-xs-4 col-sm-2">
 		        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
