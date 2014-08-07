@@ -1,4 +1,4 @@
-body { background: #333; }
+body { background: #eee; }
 
 img { border: 0; max-width: 100%; }
 
@@ -22,7 +22,7 @@ img { border: 0; max-width: 100%; }
   position: absolute;
   content: " ";
   width: 3px;
-  background-color: #eee;
+  background-color: #222;
   left: 50%;
   margin-left: -1.5px;
 }
