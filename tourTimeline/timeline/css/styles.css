@@ -1,11 +1,15 @@
-body { background: #eee; }
+body { background: #fff; }
+.pagination-centered{
+     text-align: center;   
+    
+    }
 
 img { border: 0; max-width: 100%; }
 
 .page-header h1 {
   font-size: 3.26em;
   text-align: center;
-  color: #000;
+  color: #000000;
   text-shadow: 1px 1px 0 #000;
 }
 
@@ -22,7 +26,7 @@ img { border: 0; max-width: 100%; }
   position: absolute;
   content: " ";
   width: 3px;
-  background-color: #222;
+  background-color: #000;
   left: 50%;
   margin-left: -1.5px;
 }
@@ -37,7 +41,7 @@ img { border: 0; max-width: 100%; }
   padding: 3px 0;
   font-weight: bold;
   text-align: center;
-  -webkit-box-shadow: 0 0 11px rgba(0,0,0,0.35);
+  
 }
 
 .timeline li {
@@ -61,7 +65,7 @@ img { border: 0; max-width: 100%; }
 .timeline li .timeline-panel {
   width: 46%;
   float: left;
-  background: #fff;
+  background: #FFF ;
   border: 1px solid #d4d4d4;
   padding: 20px;
   position: relative;
@@ -85,6 +89,8 @@ img { border: 0; max-width: 100%; }
   border-bottom: 15px solid transparent;
   content: " ";
 }
+
+
 
 .timeline li .timeline-panel:after {
   position: absolute;
@@ -193,6 +199,7 @@ img { border: 0; max-width: 100%; }
 
   ul.timeline > li > .timeline-panel {
     float: right;
+    
   }
 
   ul.timeline > li > .timeline-panel:before {
@@ -208,4 +215,6 @@ img { border: 0; max-width: 100%; }
     left: -14px;
     right: auto;
   }
+    
+    
 }
