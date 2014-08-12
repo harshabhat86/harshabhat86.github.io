@@ -25,14 +25,17 @@
     <!-- FB Login integration-->
 <div id="fb-root"></div>
     <script>
-        Parse.initialize("yzspodahLlPH36vP2ebZ1TMyw4qpmYR2U9j51CMe",
-	"FlLKJOUIt3MdfEFPLo6H4m9ZdzXhOIqjXMEX27yy");
+//        Parse.initialize("yzspodahLlPH36vP2ebZ1TMyw4qpmYR2U9j51CMe",
+//	"FlLKJOUIt3MdfEFPLo6H4m9ZdzXhOIqjXMEX27yy");
         
-      
+        Parse.initialize("kL1NFNINEGFag94CWEM6LmL7xRxPzVvAPNhAO6nZ",
+	"xlKdh66kYBpTJ33FneuyDkuzlayFQ2HDGfMHgeD1");
+
+
 
     window.fbAsyncInit = function() {
   	  Parse.FacebookUtils.init({
-  		    appId      : '735011953212628',
+  		    appId      : '249701425212021',
   		    status     : true, // check login status
   		    cookie     : true, // enable cookies to allow Parse to access the session
   		    xfbml      : true  // parse XFBML
@@ -74,7 +77,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=735011953212628";
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=249701425212021";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
       
@@ -116,7 +119,7 @@
     	<h3 class="omb_authTitle">Login or <a href="signup.html">Sign up</a></h3>
 		<div class="row omb_row-sm-offset-3 omb_socialButtons">
     	    <div class="col-xs-12 col-sm-6">
-		        <a href="#" id="fb" onclick="loginFB();" class="btn btn-lg btn-block omb_btn-facebook">
+		        <a href="#" onclick="loginFB();" class="btn btn-lg btn-block omb_btn-facebook">
 			        <i class="fa fa-facebook visible-xs"></i>
 			        <span class="hidden-xs">Facebook</span>
 		        </a>
