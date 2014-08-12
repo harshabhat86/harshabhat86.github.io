@@ -21,7 +21,62 @@
 
 </head>
 <body>
-
+    
+    <!-- FB Login integration-->
+<div id="fb-root"></div>
+    <script>
+    window.fbAsyncInit = function() {
+  	  Parse.FacebookUtils.init({
+  		    appId      : '735011953212628',
+  		    channelUrl : "<script src='//connect.facebook.net/en_US/all.js'/>",
+  		    status     : true, // check login status
+  		    cookie     : true, // enable cookies to allow Parse to access the session
+  		    xfbml      : true  // parse XFBML
+  		  });
+    
+    
+  };
+    
+  function loginFB(){
+	  
+	  
+	  Parse.FacebookUtils.logIn(null, {
+	        success: function(user) {
+	          if (!user.existed()) {
+	        	  window.username = Parse.User.current().attributes.username;
+	        	  document.getElementById('fb').setAttribute('style', 'display: none');
+	        	  
+	        	  
+	        	  
+	          } else {
+	        	  window.username = Parse.User.current().attributes.username;
+	        	  document.getElementById('fb').setAttribute('style', 'display: none');
+	        	  
+	        	  
+	            
+	          }
+                window.location = 'http://harshabhat86.github.io/tourTimeline/template.html?loggedInUser='+Parse.User.current().attributes.username;
+	        },
+	        error: function(user, error) {
+	          alert("User cancelled the Facebook login or did not fully authorize.");
+	          return;
+	        }
+	      });
+	  
+  }
+  
+  
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=735011953212628";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+      
+      
+    </script>
+    <!-- End FB integration-->
 <div class="container-fluid">
     
     
@@ -136,5 +191,6 @@
     <script src="js/jquery.tagsinput.js"></script>
     <script src="js/jquery.placeholder.js"></script>
     <script src="javascript/template.js"></script>
+    <script src="javascript/index.js"></script>
     
     </body>
