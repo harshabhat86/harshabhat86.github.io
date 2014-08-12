@@ -50,20 +50,20 @@
 	          if (!user.existed()) {
 	        	  window.username = Parse.User.current().attributes.username;
 	        	  document.getElementById('fb').setAttribute('style', 'display: none');
-	        	  
+	        	  window.location = 'http://harshabhat86.github.io/tourTimeline/template.html?loggedInUser='+Parse.User.current().attributes.username;  
 	        	  
 	        	  
 	          } else {
 	        	  window.username = Parse.User.current().attributes.username;
 	        	  document.getElementById('fb').setAttribute('style', 'display: none');
-	        	  
+	        	  window.location = 'http://harshabhat86.github.io/tourTimeline/template.html?loggedInUser='+Parse.User.current().attributes.username;
 	        	  
 	            
 	          }
-                window.location = 'http://harshabhat86.github.io/tourTimeline/template.html?loggedInUser='+Parse.User.current().attributes.username;
+                
 	        },
 	        error: function(user, error) {
-	          alert("User cancelled the Facebook login or did not fully authorize.");
+	          alert("User cancelled the Facebook login or did not fully authorize."+error);
 	          return;
 	        }
 	      });
