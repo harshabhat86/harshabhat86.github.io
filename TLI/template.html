@@ -12,7 +12,8 @@
 
     <!-- Loading Flat UI -->
     <link href="css/flat-ui.css" rel="stylesheet">
-
+    <link href="css/template.css" rel="stylesheet">
+      
     <link rel="shortcut icon" href="images/favicon.ico">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
@@ -37,17 +38,13 @@
               <li><a href="#fakelink">Spot Fixes</a></li>
               <li><a href="#fakelink">My Activities</a></li>
               <li><a href="#fakelink">Profile</a></li>
-            </ul>           
-            <form class="navbar-form navbar-right" action="#" role="search">
-              <div class="form-group">
-                <div class="input-group">
-                  <input class="form-control" id="navbarInput-01" type="search" placeholder="Search Tours">
-                  <span class="input-group-btn">
-                    <button type="submit" class="btn"><span class="fui-search"></span></button>
-                  </span>            
-                </div>
-              </div>               
-            </form>
+               
+            </ul>
+              <ul class="nav navbar-nav navbar-right">
+              <li><a href="#fakelink">Logout</a></li>    
+              </ul>
+              
+            
           </div><!-- /.navbar-collapse -->
         </nav>
         
@@ -60,7 +57,7 @@
             <div class="col-lg-12">
               <div class="form-group">
                 <div class="input-group">                               
-                  <input type="text" class="form-control" placeholder="Search your tours here" id="search-query-3">
+                  <input type="text" class="form-control" placeholder="Find a spotfix near you" id="search-query-3">
                   <span class="input-group-btn">
                     <button type="submit" class="btn"><span class="fui-search"></span></button>
                   </span>
@@ -69,7 +66,16 @@
             </div>
           </div>    
         
-      <div class="row">
+      <div class="row" id="mapHolder">
+        <div class="col-xs-12" id="mapHoldingCol">
+            <div id="map_canvas"></div>
+        </div>
+        
+        
+        
+      </div> <!-- /row -->
+        
+        <div class="row">
         <div class="col-xs-12">
             
         </div>
@@ -106,6 +112,7 @@
 
 
     <!-- Load JS here for greater good =============================-->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>

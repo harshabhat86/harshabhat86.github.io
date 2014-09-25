@@ -1,0 +1,17 @@
+html,body{height:100%;}
+.container-fluid {
+    height:100%;
+}
+
+#mapHolder{
+ height: 50%;
+      
+}
+#mapHoldingCol{
+    height: 100%;
+}
+#map_canvas {
+        width: 100%;
+        height: 100%;
+    background-color: #CCC;
+      }
