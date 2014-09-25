@@ -7,7 +7,7 @@ var mapCanvas = document.getElementById('map_canvas');
 
 var mapOptions = {
     //12.58,77.38
-      center: new google.maps.LatLng(parseFloat(lat),parseFloat(lng)),
+      center: new google.maps.LatLng(12.58,77.38),
       zoom: 8,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
