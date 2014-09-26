@@ -1,5 +1,5 @@
 var lat, lng;
-
+alert("USer IS "+Parse.User.current().attributes.username);
 var locationArray = [{area:"Banashankari, Bangalore",lat:12.9373, lng:77.5543,desc:bigFatDescription},
                       {area:"RVCE, Bangalore",lat:12.9239, lng:77.4997,desc:bigFatDescription},
                      {area:"Malleshwaram, Bangalore",lat:12.9800, lng:77.5750,desc:bigFatDescription},
