@@ -1,6 +1,25 @@
 var lat, lng;
 Parse.initialize("vSo04vEpbyviumU65MZFyuaj8zPx0aOhBfpTrAB0", "kz4KisAWl3Xc8QRWbgpVU2FrnGoMh5BIL0I3V0c1");
 
+var getUserDetails = function(){
+ 
+    FB.api(
+    "/me",
+    function (response) {
+        
+      if (response && !response.error) {
+        alert("Person name:"+response.name);
+      }
+    }
+);
+
+};
+
+getUserDetails();
+var saveUserDetails = function (){
+        
+}
+
 var locationArray = [{area:"Banashankari, Bangalore",lat:12.9373, lng:77.5543,desc:bigFatDescription},
                       {area:"RVCE, Bangalore",lat:12.9239, lng:77.4997,desc:bigFatDescription},
                      {area:"Malleshwaram, Bangalore",lat:12.9800, lng:77.5750,desc:bigFatDescription},

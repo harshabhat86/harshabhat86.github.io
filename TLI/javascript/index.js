@@ -19,19 +19,3 @@ var introText = "It’s time we admitted that many of India’s problems "+
 "Only we can save us. From ourselves.";
 
 
-var getUserDetails = function(){
- 
-    FB.api(
-    "/me",
-    function (response) {
-        
-      if (response && !response.error) {
-        alert("Person name:"+response.name);
-      }
-    }
-);
-
-}
-var saveUserDetails = function (){
-        
-}
