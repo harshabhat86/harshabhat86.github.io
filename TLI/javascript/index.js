@@ -16,4 +16,22 @@ var introText = "It’s time we admitted that many of India’s problems "+
 "Ask those who have visited Southall (London), "+
 "Edison (New Jersey) and Little India (Singapore)"+
 "It’s time for us Ugly Indians to do something about this."+
-"Only we can save us. From ourselves."
+"Only we can save us. From ourselves.";
+
+
+var getUserDetails = function(){
+ 
+    FB.api(
+    "/me",
+    function (response) {
+        
+      if (response && !response.error) {
+        alert("Person name:"+response.name);
+      }
+    }
+);
+
+}
+var saveUserDetails = function (){
+        
+}

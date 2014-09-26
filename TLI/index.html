@@ -53,6 +53,8 @@
 	          if (!user.existed()) {
 	        	  window.username = Parse.User.current().attributes.username;
 	        	  document.getElementById('fb').setAttribute('style', 'display: none');
+                  getUserDetails();
+                  //saveUserDetails();
 	        	  window.location = 'template.html';  
 	        	  
 	        	  
