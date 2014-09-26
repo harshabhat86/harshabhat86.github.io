@@ -8,6 +8,7 @@ window.fbAsyncInit = function() {
           xfbml      : true,
           version    : 'v2.1'
         });
+    
       };
 
       (function(d, s, id){
@@ -34,7 +35,7 @@ var getUserDetails = function(){
 
 };
 
-getUserDetails();
+//getUserDetails();
 var saveUserDetails = function (){
         
 }
