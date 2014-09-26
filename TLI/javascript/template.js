@@ -1,13 +1,28 @@
 var lat, lng;
 
-var locationArray = [{area:"Banashankari, Bangalore",lat:12.9373, lng:77.5543},
-                      {area:"RVCE, Bangalore",lat:12.9239, lng:77.4997},
-                     {area:"Malleshwaram, Bangalore",lat:12.9800, lng:77.5750},
-                     {area:"Maratahalli, Bangalore",lat:12.9562, lng:77.7019},
-                     {area:"KR Puram, Bangalore",lat:12.9950, lng:77.6800},
-                     {area:"Basavanagudi, Bangalore",lat:12.9400, lng:77.5700}
+var locationArray = [{area:"Banashankari, Bangalore",lat:12.9373, lng:77.5543,desc:bigFatDescription},
+                      {area:"RVCE, Bangalore",lat:12.9239, lng:77.4997,desc:bigFatDescription},
+                     {area:"Malleshwaram, Bangalore",lat:12.9800, lng:77.5750,desc:bigFatDescription},
+                     {area:"Maratahalli, Bangalore",lat:12.9562, lng:77.7019,desc:bigFatDescription},
+                     {area:"KR Puram, Bangalore",lat:12.9950, lng:77.6800,desc:bigFatDescription},
+                     {area:"Basavanagudi, Bangalore",lat:12.9400, lng:77.5700,desc:bigFatDescription}
                      
                     ];
+
+
+var bigFatDescription = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Spot Fix</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Spot fix in this place is scheduled in a week and we welcome people to join!</b>' +
+      'People needed: Around 15'+
+      'Approx. time needed: 4-5 hours'+
+      'Total area: around 500 Square feet'+
+      '</p>'+
+      '</div>'+
+      '</div>';
+
 var coordArray = [];
 
 var mapPosition = function(){
@@ -21,11 +36,20 @@ var showAllCoordinates = function(myMap){
     mapPosition();
     var coord;
   for (coord in coordArray) {
-    new google.maps.Marker({
+    var markr = new google.maps.Marker({
       position: coordArray[coord],
       map: myMap,
       title: locationArray[coord].area
     });
+      
+    
+      google.maps.event.addListener(markr, 'click', function() {
+        var infowindow = new google.maps.InfoWindow({
+            
+            content: 'No Info Yet'
+        });  
+        infowindow.open(myMap,markr);
+  });
   }
 }
 
@@ -44,7 +68,9 @@ var mapOptions = {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     var map = new google.maps.Map(mapCanvas, mapOptions);    
-
+    
+    
+    
     showAllCoordinates(map);
 };
     
