@@ -20,32 +20,6 @@ window.fbAsyncInit = function() {
        }(document, 'script', 'facebook-jssdk'));
  
 
-
-var getUserDetails = function(){
- if (FB===undefined){
-    FB.api(
-    "/me",
-    function (response) {
-        
-      if (response && !response.error) {
-        alert("Person name:"+response.name);
-      }
-    }
-);
-}else{
-    getUserDetails();
-}
-    
-
-};
-
-getUserDetails();
-
-    
-var saveUserDetails = function (){
-        
-}
-
 var locationArray = [{area:"Banashankari, Bangalore",lat:12.9373, lng:77.5543,desc:bigFatDescription},
                       {area:"RVCE, Bangalore",lat:12.9239, lng:77.4997,desc:bigFatDescription},
                      {area:"Malleshwaram, Bangalore",lat:12.9800, lng:77.5750,desc:bigFatDescription},

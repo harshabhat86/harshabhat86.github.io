@@ -50,20 +50,17 @@
 	  
 	  Parse.FacebookUtils.logIn(null, {
 	        success: function(user) {
-	          if (!user.existed()) {
-	        	  window.username = Parse.User.current().attributes.username;
+	          
+	           FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+             console.log( 'Thanks for logging in, ' + response.name + '!');
+    });
+                
+                  window.username = Parse.User.current().attributes.username;
 	        	  document.getElementById('fb').setAttribute('style', 'display: none');
                   window.location = 'template.html';  
 	        	  
-	        	  
-	          } else {
-	        	  window.username = Parse.User.current().attributes.username;
-	        	  document.getElementById('fb').setAttribute('style', 'display: none');
-	        	  window.location = 'template.html';
-	        	  
 	            
-	          }
-                
 	        },
 	        error: function(user, error) {
 	          alert("User cancelled the Facebook login or did not fully authorize.");
@@ -81,7 +78,15 @@
   js.src = "//connect.facebook.net/en_US/all.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-      
+        
+function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
       
     </script>
     <!-- End FB integration-->
