@@ -55,10 +55,15 @@
       console.log('Successful login for: ' + response.name);
              console.log( 'Thanks for logging in, ' + response.name + '!');
     });
-                
-                  window.username = Parse.User.current().attributes.username;
+                user.set("name",response.name);
+                user.save{null, 
+                    success:function(){
+                        console.log("User saved!!");
+                    };
+                         
+                         };
 	        	  document.getElementById('fb').setAttribute('style', 'display: none');
-                  window.location = 'template.html';  
+                  //window.location = 'template.html';  
 	        	  
 	            
 	        },
