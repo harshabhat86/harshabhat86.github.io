@@ -22,7 +22,7 @@ window.fbAsyncInit = function() {
 
 
 var getUserDetails = function(){
- if (FB){
+ if (FB===undefined){
     FB.api(
     "/me",
     function (response) {
