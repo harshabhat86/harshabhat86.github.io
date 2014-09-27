@@ -22,7 +22,7 @@ window.fbAsyncInit = function() {
 
 
 var getUserDetails = function(){
- 
+ if (FB){
     FB.api(
     "/me",
     function (response) {
@@ -32,10 +32,16 @@ var getUserDetails = function(){
       }
     }
 );
+}else{
+    getUserDetails();
+}
+    
 
 };
 
-//getUserDetails();
+getUserDetails();
+
+    
 var saveUserDetails = function (){
         
 }
