@@ -54,13 +54,14 @@
 	           FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
              console.log( 'Thanks for logging in, ' + response.name + '!');
-    });
+    
                 user.set("name",response.name);
                  user.save(null, {
                         success: function(user) {
                           console.log("Username saved");
                       }
                     });
+                   });
 	        	  document.getElementById('fb').setAttribute('style', 'display: none');
                   //window.location = 'template.html';  
 	        	  
