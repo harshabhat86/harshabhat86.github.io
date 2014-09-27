@@ -56,12 +56,11 @@
              console.log( 'Thanks for logging in, ' + response.name + '!');
     });
                 user.set("name",response.name);
-                user.save{null, 
-                    success:function(){
-                        console.log("User saved!!");
-                    };
-                         
-                         };
+                 user.save(null, {
+                        success: function(user) {
+                          console.log("Username saved");
+                      }
+                    });
 	        	  document.getElementById('fb').setAttribute('style', 'display: none');
                   //window.location = 'template.html';  
 	        	  
@@ -84,14 +83,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
         
-function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
+
       
     </script>
     <!-- End FB integration-->
