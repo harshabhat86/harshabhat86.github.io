@@ -15,7 +15,7 @@ html,body{height:100%;}
 max-height:inherit;    
 }
 
-#home_Image{
+#home_Image, Hhome_Image>p{
     text-align: center;
     vertical-align: middle;
     background-color: #E74C3C; 
