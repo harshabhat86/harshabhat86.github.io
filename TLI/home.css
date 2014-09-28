@@ -25,10 +25,14 @@ max-height:inherit;
 }
 #gandhi
 {
-  text-align: right;   
+  text-align: center;   
 }
 
 #glyph{
  text-align: center;
     vertical-align: bottom;
+}
+.success{
+  height: 150px;
+    
 }
