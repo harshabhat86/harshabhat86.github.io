@@ -1,0 +1,34 @@
+html,body{height:100%;}
+.container-fluid {
+    height:100%;
+}
+
+#carousel_image{
+ max-height:100%;
+ max-width: 100%;
+ height: 100%;
+ width: 100%;
+}
+
+.carouselRow{
+ height: inherit;
+max-height:inherit;    
+}
+
+#home_Image{
+    text-align: center;
+    vertical-align: middle;
+    background-color: #E74C3C; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", "sans-serif";
+    font-size: 50px;
+    
+}
+#gandhi
+{
+  text-align: right;   
+}
+
+#glyph{
+ text-align: center;
+    vertical-align: bottom;
+}
