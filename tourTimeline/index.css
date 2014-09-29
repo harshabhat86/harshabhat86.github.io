@@ -5,11 +5,13 @@
     For .omb_spanOr use @body-bg instead of white.
 */
 
+
 @media (min-width: 768px) {
     .omb_row-sm-offset-3 div:first-child[class*="col-"] {
         margin-left: 25%;
     }
 }
+
 
 .omb_login .omb_authTitle {
     text-align: center;
@@ -63,9 +65,11 @@
 }
 
 	
+
 @media (min-width: 768px) {
     .omb_login .omb_forgotPwd {
         text-align: right;
 		margin-top:10px;
  	}		
 }
+

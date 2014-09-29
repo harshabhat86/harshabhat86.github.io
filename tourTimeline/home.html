@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>The Ugly Indian|Home</title>
+  <title>Tour Timeline|Home</title>
   <meta name="author" content="Harsha Bhat">
   <link rel="shortcut icon" href="../images/favicon.ico">
     
@@ -31,12 +31,12 @@
         /*Parse.initialize("kL1NFNINEGFag94CWEM6LmL7xRxPzVvAPNhAO6nZ",
 	"xlKdh66kYBpTJ33FneuyDkuzlayFQ2HDGfMHgeD1");
 */
-        Parse.initialize("vSo04vEpbyviumU65MZFyuaj8zPx0aOhBfpTrAB0", "kz4KisAWl3Xc8QRWbgpVU2FrnGoMh5BIL0I3V0c1");
+        Parse.initialize("UgGDgwI7cRYW8S0AqZd9UyjQENPHW8RWrQ7WPEQS", "AnVPA1npoxG2Fdpy0kt3vnm9h6jts7KabMCDuxed");
 
 
     window.fbAsyncInit = function() {
   	  Parse.FacebookUtils.init({
-  		    appId      : '537059559759743',
+  		    appId      : '735011953212628',
   		    status     : true, // check login status
   		    cookie     : true, // enable cookies to allow Parse to access the session
   		    xfbml      : true  // parse XFBML
@@ -50,22 +50,20 @@
 	  
 	  Parse.FacebookUtils.logIn(null, {
 	        success: function(user) {
-	          
-	           FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-             console.log( 'Thanks for logging in, ' + response.name + '!');
-    
-                user.set("name",response.name);
-                 user.save(null, {
-                        success: function(user) {
-                          console.log("Username saved");
-                      }
-                    });
-                   });
+	          if (!user.existed()) {
+	        	  window.username = Parse.User.current().attributes.username;
 	        	  document.getElementById('fb').setAttribute('style', 'display: none');
-                  //window.location = 'template.html';  
+	        	  window.location = 'http://harshabhat86.github.io/tourTimeline/template.html?loggedInUser='+Parse.User.current().attributes.username;  
+	        	  
+	        	  
+	          } else {
+	        	  window.username = Parse.User.current().attributes.username;
+	        	  document.getElementById('fb').setAttribute('style', 'display: none');
+	        	  window.location = 'http://harshabhat86.github.io/tourTimeline/template.html?loggedInUser='+Parse.User.current().attributes.username;
 	        	  
 	            
+	          }
+                
 	        },
 	        error: function(user, error) {
 	          alert("User cancelled the Facebook login or did not fully authorize.");
@@ -83,40 +81,43 @@
   js.src = "//connect.facebook.net/en_US/all.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-        
-
+      
       
     </script>
     <!-- End FB integration-->
 <div class="container-fluid">
     
     
-     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="slide-nav">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="slide-nav">
             <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
               <span class="sr-only">Toggle navigation</span>
             </button>
-            <a class="navbar-brand" href="#">The Logical Indian</a>
+            <a class="navbar-brand" href="template.html">Tour Timeline</a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav">           
-              <li class="active"><a href="#fakelink">Plan a Spot Fix</a></li>
-              <li><a href="#fakelink">Spot Fixes</a></li>
-              <li><a href="#fakelink">My Activities</a></li>
-              
-               
-            </ul>
-              <ul class="nav navbar-nav navbar-right">
-              <li><a href="#fakelink">Logout</a></li>    
-              </ul>
-              
-            
+              <li><a href="#fakelink">Explore Tours</a></li>
+              <li><a href="#fakelink">Learn More</a></li>
+              <li><a href="#fakelink">Who are we</a></li>
+              <li class="active"><a href="index.html">Sign Up/ Login</a></li>
+            </ul>           
+            <form class="navbar-form navbar-right" action="#" role="search">
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control" id="navbarInput-01" type="search" placeholder="Search Tours">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn"><span class="fui-search"></span></button>
+                  </span>            
+                </div>
+              </div>               
+            </form>
           </div><!-- /.navbar-collapse -->
         </nav>
-        
     
+
     <div class="omb_login">
-    	<h3 class="omb_authTitle">Login using Facebook</h3>
+    	<h3 class="omb_authTitle">Login or <a href="signup.html">Sign up</a></h3>
 		<div class="row omb_row-sm-offset-3 omb_socialButtons">
     	    <div class="col-xs-12 col-sm-6">
 		        <a href="#" id="fb" onclick="loginFB();" class="btn btn-lg btn-block omb_btn-facebook">
@@ -124,7 +125,21 @@
 			        <span class="hidden-xs">Facebook</span>
 		        </a>
 	        </div>
+<!--
+        	<div class="col-xs-4 col-sm-2">
+		        <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+			        <i class="fa fa-twitter visible-xs"></i>
+			        <span class="hidden-xs">Twitter</span>
+		        </a>
+	        </div>	
 
+        	<div class="col-xs-4 col-sm-2">
+		        <a href="#" class="btn btn-lg btn-block omb_btn-google">
+			        <i class="fa fa-google-plus visible-xs"></i>
+			        <span class="hidden-xs">Google+</span>
+		        </a>
+	        </div>	
+-->
 		</div>
 
 
@@ -138,38 +153,50 @@
         <div class="row omb_row-sm-offset-3">
 			<div class="col-xs-12 col-sm-6">
 				
-                <span class="omb_spanOr">It’s time we admitted that many of India’s problems are because many of us are <b>Ugly Indians</b>.</span>
-                <span class="omb_spanOr"> Look at any Indian street, we have pathetic civic standards.
-                 We tolerate an incredible amount of filth.
-                This is not about money, knowhow, or systems.
-                This is about attitudes. About a rooted cultural behaviour.
-                The Ugly Indian can take the world's best systems
-                and find a way around it. Even outside India.
-                Streets in Indian-dominated suburbs overseas 
-                are good indicators of this lack of civic sense.
-                Ask those who have visited Southall (London), 
-                Edison (New Jersey) and Little India (Singapore)
-                It’s time for us Ugly Indians to do something about this.
-                Only we can save us. From ourselves.
-                
-                </span>
+                <span class="omb_spanOr">Add a write up here for your app. </span>
+                <span class="omb_spanOr">A write up that is sweet and short and enough to give the appropriate "kick" needed </span>
                 
 				
 			</div>
 		</div>
 
 
+<!--
+		<div class="row omb_row-sm-offset-3">
+			<div class="col-xs-12 col-sm-6">	
+			    <form class="omb_loginForm" action="" autocomplete="off" method="POST">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<input type="text" class="form-control" name="username" placeholder="email address">
+					</div>
+					<span class="help-block"></span>
+										
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<input  type="password" class="form-control" name="password" placeholder="Password">
+					</div>
+                    <span class="help-block">Password error</span>
 
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+				</form>
+			</div>
+    	</div>
+-->
+<!--
+		<div class="row omb_row-sm-offset-3">
+			<div class="col-xs-12 col-sm-3">
+				<label class="checkbox">
+					<input type="checkbox" value="remember-me">Remember Me
+				</label>
+			</div>
+			<div class="col-xs-12 col-sm-3">
+				<p class="omb_forgotPwd">
+					<a href="#">Forgot password?</a>
+				</p>
+			</div>
+		</div>	    	
+-->
 	</div>
-    <br>
-    <div class="progress">
-  
-        <div id="divisionBar" class="progress-bar" style="width: 100%;"></div>
-    
-    </div>
-    
-    
-
 
 
 
@@ -188,7 +215,7 @@
     <script src="js/flatui-radio.js"></script>
     <script src="js/jquery.tagsinput.js"></script>
     <script src="js/jquery.placeholder.js"></script>
-    <script src="javascript/index.js"></script>
+    <script src="javascript/template.js"></script>
     
     
     </body>

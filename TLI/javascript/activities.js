@@ -60,7 +60,6 @@ function getData(tab) {
                 myOtherUrl = "https://api.parse.com/1/classes/Spotfix?order=isComplete";
                 break;
             }
-
     }
     
     xmlhttp.open("GET", myOtherUrl, true);
