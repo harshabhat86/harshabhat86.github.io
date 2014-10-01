@@ -9,56 +9,24 @@
 	<link rel="shortcut icon" id="favicon" href="favicon.png"> 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Pacifico:400' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-select.js"></script>
+    <script src="../js/bootstrap-switch.js"></script>
+    <script src="../js/flatui-checkbox.js"></script>
+    <script src="../js/flatui-radio.js"></script>
+    <script src="../js/jquery.tagsinput.js"></script>
+    <script src="../js/jquery.placeholder.js"></script>
+    
     <script type="text/javascript" src="jquery.onepage-scroll.min.js"></script>
     <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
-    <script>
-        Parse.initialize("vSo04vEpbyviumU65MZFyuaj8zPx0aOhBfpTrAB0",
-			"kz4KisAWl3Xc8QRWbgpVU2FrnGoMh5BIL0I3V0c1");
-        window.fbAsyncInit = function() {
-  	      Parse.FacebookUtils.init({
-  		    appId      : '537059559759743',
-  		    status     : true, // check login status
-  		    cookie     : true, // enable cookies to allow Parse to access the session
-  		    xfbml      : true  // parse XFBML
-  		  });
-        };
-        
-        function fblogin() {
-            Parse.FacebookUtils.logIn(null, {
-              success: function(user) {
-
-                FB.api('/me', function(response) {
-                  console.log(response);
-                  console.log('Successful login for: ' + response.name);
-                  console.log( 'Thanks for logging in, ' + response.name + '!');
-
-                  user.set("name",response.name);
-                  user.save(null, {
-                    success: function(user) {
-                    console.log("Username saved");
-                    }
-                  });
-                });
-                window.location = '../template.html';  
-              },
-              error: function(user, error) {
-                console.log("User cancelled the Facebook login or did not fully authorize." + JSON.stringify(error));
-                return;
-              }
-            });
-         }
-        
-          
-          (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/all.js";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        
-    </script>
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../css/flat-ui.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-social.css" rel="stylesheet">
+    
     <link href='onepage-scroll.css' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
   <style>
@@ -190,7 +158,7 @@
       line-height: 140%;
     }
     
-    .reload, .btn{
+    .reload {
       display: inline-block;
       border: 4px solid #A2261E;
       border-radius: 5px;
@@ -211,22 +179,8 @@
     .reload:hover{
       background: #1abc9c;
     }
-    .btn {
-      width: 200px;
-      color: rgb(0, 0, 0);
-      border: 1px solid rgba(0, 0, 0,0.85);
-      background: #E2E4E7;
-    }
     .clear {
       width: auto;
-    }
-    .btn:hover, .btn:hover {
-      background: #1abc9c;
-	  color: rgb(256,256,256);
-    }
-    .btns {
-      width: 410px;
-      margin: 50px auto;
     }
     .credit {
       text-align: center;
@@ -308,7 +262,7 @@
       clear: both;
       float: left;
       text-align: center;
-      width: 435px;
+      width: 300px;
     }
     .main section .page_container .btns a{
       text-align: center;
@@ -323,7 +277,7 @@
       margin-left: -1095px;
     }
     .main section.page2 .page_container {
-      margin-top: 240px;
+      margin-top: 100px;
       overflow: hidden;
     }
     .main section.page2 h1 {
@@ -339,6 +293,20 @@
       text-align: center;
       line-height: 160%;
       font-weight: 100;
+    }
+    .main section.page2 h3 {
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      line-height: 100%;
+      font-weight: 100;
+      font-size: x-large;
+    }
+    .main section.page2 h4 {
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      line-height: inherit;
+      font-weight: 100;
+      font-size: large;
     }
     .viewing-page-2 .back{
       background: rgba(0, 0, 0, 0.25);
@@ -437,6 +405,16 @@
             <h1>"I will not let anyone walk through my mind with their dirty feet."</h1>
             <h2>-Mahatma Gandhi</h2>
 		  </div>
+          <div style="display: inline-flex; padding-top:20px">
+			  <span class="btns">
+                <button type="button" id="login" class="btn btn-block btn-lg btn-inverse" onclick="fblogin();" style="max-width:250px" title="Login using facebook" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-facebook-square "></i>&nbsp;&nbsp;I am an ugly Indian</button>
+	  	      </span>
+              <span class="btns">
+                <button type="button" id="no-login" class="btn btn-block btn-lg btn-inverse" onclick="fblogin();" style="max-width:250px" title="How cool!" data-toggle="tooltip" data-placement="bottom">Continue anonymously</button>
+	  	      </span>
+		  </div>
+            </br></br></br>
+          <div class="glyphicon glyphicon-hand-down" style="margin-right:50px" title="Scroll" id="scrollDown" data-toggle="tooltip" data-placement="bottom"></div>
   	    </div>
   	    
       </section>
@@ -447,13 +425,21 @@
           <h1>130 People volunteered</h1>
 		  <h1>350 Hours of cleaning</h1>
 		  <h2>Story to be continued...</h2>
+          <h3>Pretty Neat Huh?</h3>
+		  <h4>It’s time we admitted that many of India’s problems are because many of us are Ugly Indians. 
+Look at any Indian street, we have pathetic civic standards. We tolerate an incredible amount of filth. 
+This is not about money, knowhow, or systems. This is about attitudes. About a rooted cultural behaviour.
+The Ugly Indian can take the world's best systems and find a way around it. Even outside India. Streets in Indian-dominated suburbs overseas are good indicators of this lack of civic sense. Ask those who have visited Southall (London), Edison (New Jersey) and Little India (Singapore).
+It’s time for us Ugly Indians to do something about this. 
+          </h4>       
+            <h4>Only we can save us. From ourselves.</h4>
   	    </div>
 
       </section>
 	    
-	    <section class="page3">
+      <section class="page3">
 	      <div class="page_container">
-			<table>
+<!--			<table>
 				<tr>
 		  		<td><img src="img1.jpg"></td>
 				<td style="padding-left:20px">
@@ -466,19 +452,70 @@
 					
 				</td>
 				</tr>
-			</table>
-			<div style="display: inline-flex">
-			  <span class="btns">
-                <button type="button" class="reload btn" id="fb" onclick="fblogin();">I am an ugly Indian</button>
-	  	      </span>
-			  <span class="btns">
-	  	        <a class="reload btn" href="https://github.com/peachananr/onepage-scroll">Continue anonymously</a>
-	  	      </span>
-		    </div>
+			</table>-->
   	      </div>
 		  
       </section>
     </div>
   </div>
+    
+    <script>
+        
+        Parse.initialize("vSo04vEpbyviumU65MZFyuaj8zPx0aOhBfpTrAB0",
+			"kz4KisAWl3Xc8QRWbgpVU2FrnGoMh5BIL0I3V0c1");
+        window.fbAsyncInit = function() {
+  	      Parse.FacebookUtils.init({
+  		    appId      : '537059559759743',
+  		    status     : true, // check login status
+  		    cookie     : true, // enable cookies to allow Parse to access the session
+  		    xfbml      : true  // parse XFBML
+  		  });
+        };
+        
+        function fblogin() {
+            Parse.FacebookUtils.logIn(null, {
+              success: function(user) {
+
+                FB.api('/me', function(response) {
+                  console.log(response);
+                  console.log('Successful login for: ' + response.name);
+                  console.log( 'Thanks for logging in, ' + response.name + '!');
+
+                  user.set("name",response.name);
+                  user.save(null, {
+                    success: function(user) {
+                    console.log("Username saved");
+                    }
+                  });
+                });
+                window.location = '../template.html';  
+              },
+              error: function(user, error) {
+                console.log("User cancelled the Facebook login or did not fully authorize." + JSON.stringify(error));
+                return;
+              }
+            });
+         }
+        
+          
+          (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        
+        $("#login").on("hover", function () {
+          $(this).tooltip('show');
+        });
+        $("#no-login").on("hover", function() {
+            $(this).tooltip('show');
+        });
+        $("#scrollDown").on("hover", function() {
+            $(this).tooltip('show');
+        });
+        
+    </script>
 </body>
 </html>
