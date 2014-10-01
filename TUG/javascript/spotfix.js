@@ -90,10 +90,10 @@ Output: None.
 
 It will draw google map with geo points tagged
 */
-var pinCoordinates = function(myMap,geoLocationArray){
+var pinCoordinates = function(myMap){
     
     var coordinates = [];
-    coordinates = coOrdToGooglePoints(geoLocationArray);
+    coordinates = coOrdToGooglePoints(locationArray);
     var coord;
     var count=0;
     for (coord in coordinates) {
@@ -101,7 +101,7 @@ var pinCoordinates = function(myMap,geoLocationArray){
         var markr = new google.maps.Marker({
             position: coordinates[coord],
             map: myMap,
-            title: geoLocationArray[count].description+": [At: "+coordinates[coord].toString()+"]"
+            title: locationArray[count].description+": [At: "+coordinates[coord].toString()+"]"
             
         });
         count+=1;
@@ -119,7 +119,7 @@ var pinCoordinates = function(myMap,geoLocationArray){
             infowindow.open(mapObj, marker);
             }
             
-        }(myMap, markr,getDescription(geoLocationArray[count])));
+        }(myMap, markr,getDescription(locationArray[count])));
     }
     
 }
@@ -145,11 +145,10 @@ function initialize() {
         zoom: 10,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
+console.log("coming till here :"+locationArray.length);
     var map = new google.maps.Map(mapCanvas, mapOptions);
-
-
-
-    pinCoordinates(map,locationArray);
+console.log("locationArray is in function is :"+locationArray.length);
+    pinCoordinates(map);
 };
 
 
@@ -176,6 +175,7 @@ function getAllData() {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             try {
                 var data = JSON.parse(xmlhttp.responseText);
+                
                 appendAllData(data);
             } catch (x) {
                 console.log("Crashed " + x);
@@ -191,10 +191,7 @@ function getAllData() {
 function appendAllData(data) {
     var results = data.results;
     var size = results.length;
-    
-    //Harsha: MAking the array global for good
     locationArray = results;
-    
     for(var i = 0; i < size; i++) {
         if(results[i].isComplete)
             appendClosedActivities(results[i], i);
