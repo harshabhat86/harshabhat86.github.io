@@ -499,7 +499,7 @@ It’s time for us Ugly Indians to do something about this.
                 window.location = 'spotfix.html';  
               },
               error: function(user, error) {
-                  f(error.code = 251) {
+                  if(error.code = 251) {
                       Parse.User.logOut();
                       location.reload();
                   }
