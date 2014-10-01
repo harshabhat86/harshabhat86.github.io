@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>The Logical Indian</title>
+    <title>The Ugly Indian</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
     <!-- Loading Bootstrap -->
@@ -31,13 +31,13 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
               <span class="sr-only">Toggle navigation</span>
             </button>
-            <a class="navbar-brand" href="#">The Logical Indian</a>
+            <a class="navbar-brand" href="home.html">The Ugly Indian</a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav">           
               <li><a href="#fakelink">Plan a Spot Fix</a></li>
               <li><a href="#fakelink">Spot Fixes</a></li>
-              <li class="active"><a href="#fakelink">Activities</a></li>
+              <li class="active"><a href="#fakelink">My Activities</a></li>
               <li><a href="#fakelink">Profile</a></li>
                
             </ul>
@@ -58,7 +58,6 @@
             <ul class="nav nav-tabs" role="tablist">
               <li class="active"><a href="#owned" role="tab" data-toggle="tab">Owned</a></li>
               <li><a href="#contributed" role="tab" data-toggle="tab">My Contributions</a></li>
-              <li><a href="#allActivities" role="tab" data-toggle="tab">All Activities</a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -75,12 +74,6 @@
                         
                   </div>
               </div>
-              <div class="tab-pane" id="allActivities">
-                All activites
-                <div id="accordion-all-data">
-                        
-                </div>
-              </div>
             </div>
         
       </div> <!-- /row -->
@@ -93,9 +86,14 @@
         
         
       </div> <!-- /row -->
-
-      </div>
-
+        
+        
+       <div class="col-xs-12" id="mapHoldingCol" style="height:500px;">
+                <div id="map_canvas"></div>
+            </div>
+        
+        
+    </div>
     <!-- /.container -->
 
 
@@ -105,6 +103,7 @@
         Parse.initialize("vSo04vEpbyviumU65MZFyuaj8zPx0aOhBfpTrAB0",
 			"kz4KisAWl3Xc8QRWbgpVU2FrnGoMh5BIL0I3V0c1");
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBR_fo7ceHGl70oWC3eCSKaBpLDDeSQaSc&region=IN&libraries=places"></script>
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
@@ -115,7 +114,8 @@
     <script src="js/flatui-radio.js"></script>
     <script src="js/jquery.tagsinput.js"></script>
     <script src="js/jquery.placeholder.js"></script>
-    <script src="javascript/template.js"></script>
+<!--    <script src="javascript/template.js"></script>-->
     <script src="javascript/activities.js"></script>
+    <script src="javascript/act_map.js"></script>
   </body>
 </html>

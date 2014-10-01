@@ -23,7 +23,7 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body onload="loaded();">
+  <body onload="getAllData();">
     <div class="container-fluid">
         
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="slide-nav">
@@ -31,13 +31,13 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
               <span class="sr-only">Toggle navigation</span>
             </button>
-            <a class="navbar-brand" href="#">The Logical Indian</a>
+            <a class="navbar-brand" href="web/web.html">The Logical Indian</a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav">           
               <li><a href="#fakelink">Plan a Spot Fix</a></li>
-              <li><a href="#fakelink">Spot Fixes</a></li>
-              <li class="active"><a href="#fakelink">Activities</a></li>
+              <li class="active"><a href="spotfix.html">Spot Fixes</a></li>
+              <li><a href="activities.html">My Activities</a></li>
               <li><a href="#fakelink">Profile</a></li>
                
             </ul>
@@ -56,33 +56,32 @@
       
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-              <li class="active"><a href="#owned" role="tab" data-toggle="tab">Owned</a></li>
-              <li><a href="#contributed" role="tab" data-toggle="tab">My Contributions</a></li>
-              <li><a href="#allActivities" role="tab" data-toggle="tab">All Activities</a></li>
+              <li class="active"><a href="#openActivities" role="tab" data-toggle="tab">Open Activities</a></li>
+              <li><a href="#closedActivities" role="tab" data-toggle="tab">Closed Activites</a></li>
+<!--              <li><a href="#allActivities" role="tab" data-toggle="tab">All Activities</a></li>-->
             </ul>
-
-            <!-- Tab panes -->
+        
             <div class="tab-content">
-              <div class="tab-pane active" id="owned">
+              <div class="tab-pane active" id="openActivities">
                   These are the fixes owned
-                    <div id="accordion-owned-data">
+                    <div id="accordion-openAct-data">
                         
                     </div>
               </div>
-              <div class="tab-pane" id="contributed">
+              <div class="tab-pane" id="closedActivities">
                   These are the fixes contributed to
-                  <div id="accordion-contributed-data">
+                  <div id="accordion-closedAct-data">
                         
                   </div>
               </div>
-              <div class="tab-pane" id="allActivities">
+<!--              <div class="tab-pane" id="allActivities">
                 All activites
-                <div id="accordion-all-data">
+                <div id="accordion-allAct-data">
                         
                 </div>
-              </div>
+              </div>-->
             </div>
-        
+     
       </div> <!-- /row -->
         
         <div class="row">
@@ -116,6 +115,6 @@
     <script src="js/jquery.tagsinput.js"></script>
     <script src="js/jquery.placeholder.js"></script>
     <script src="javascript/template.js"></script>
-    <script src="javascript/activities.js"></script>
+    <script src="javascript/spotfix.js"></script>
   </body>
 </html>
