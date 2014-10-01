@@ -383,6 +383,11 @@
       margin-right: auto;
       right: 0;
     }
+    button {
+        max-width:250px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 	</style>
 	<script>
 	  $(document).ready(function(){
@@ -405,16 +410,19 @@
             <h1>"I will not let anyone walk through my mind with their dirty feet."</h1>
             <h2>-Mahatma Gandhi</h2>
 		  </div>
-          <div style="display: inline-flex; padding-top:20px">
-			  <span class="btns">
-                <button type="button" id="login" class="btn btn-block btn-lg btn-inverse" onclick="fblogin();" style="max-width:250px" title="Login using facebook" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-facebook-square "></i>&nbsp;&nbsp;I am an ugly Indian</button>
-	  	      </span>
-              <span class="btns">
-                <button type="button" id="no-login" class="btn btn-block btn-lg btn-inverse" onclick="fblogin();" style="max-width:250px" title="How cool!" data-toggle="tooltip" data-placement="bottom">Continue anonymously</button>
-	  	      </span>
+          <div style="padding-top:30%">
+                <button type="button" id="login" class="btn btn-lg btn-inverse" 
+                        onclick="fblogin();" title="Login using facebook" data-toggle="tooltip" data-placement="bottom">
+                            <i class="fa fa-facebook-square "></i>&nbsp;&nbsp;I am an ugly Indian
+                </button>
+	  	        <button type="button" id="no-login" class="btn btn-lg btn-inverse" 
+                        onclick="fblogin();" title="How cool!" data-toggle="tooltip" data-placement="bottom">
+                    Continue anonymously
+                </button>
 		  </div>
-            </br></br></br>
-          <div class="glyphicon glyphicon-hand-down" style="margin-right:50px" title="Scroll" id="scrollDown" data-toggle="tooltip" data-placement="bottom"></div>
+          <div class="glyphicon glyphicon-hand-down" 
+               title="Scroll" id="scrollDown" data-toggle="tooltip" data-placement="bottom">
+          </div>
   	    </div>
   	    
       </section>
