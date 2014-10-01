@@ -499,6 +499,10 @@ It’s time for us Ugly Indians to do something about this.
                 window.location = 'spotfix.html';  
               },
               error: function(user, error) {
+                  f(error.code = 251) {
+                      Parse.User.logOut();
+                      location.reload();
+                  }
                 console.log("User cancelled the Facebook login or did not fully authorize." + JSON.stringify(error));
                 return;
               }
