@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>The Logical Indian</title>
+    <title>The Ugly Indian</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
     <!-- Loading Bootstrap -->
@@ -31,18 +31,18 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
               <span class="sr-only">Toggle navigation</span>
             </button>
-            <a class="navbar-brand" href="web/web.html">The Logical Indian</a>
+            <a class="navbar-brand" href="index.html">The Ugly Indian</a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav">           
-              <li><a href="#fakelink">Plan a Spot Fix</a></li>
-              <li class="active"><a href="spotfix.html">Spot Fixes</a></li>
-              <li><a href="activities.html">My Activities</a></li>
-              <li><a href="#fakelink">Profile</a></li>
+              <li><a id="planASpotFix" href="form.html" title="Own a spotfix! Let others follow the lead!" data-toggle="tooltip" data-placement="bottom">Plan a Spot Fix</a></li>
+              <li class="active"><a id="spotFixes" href="spotfix.html" title="You can join a spotfix too!!" data-toggle="tooltip" data-placement="bottom">Spot Fixes</a></li>
+              <li><a id="mySpotfixes" href="activities.html">My Spotfixes</a></li>
+              
                
             </ul>
               <ul class="nav navbar-nav navbar-right">
-              <li><a href="#fakelink">Logout</a></li>    
+              <li ><a href="index.html" id="logout">Logout</a></li>    
               </ul>
               
             
@@ -56,20 +56,27 @@
       
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-              <li class="active"><a href="#openActivities" role="tab" data-toggle="tab">Open Activities</a></li>
-              <li><a href="#closedActivities" role="tab" data-toggle="tab">Closed Activites</a></li>
+              <li class="active"><a href="#openActivities" role="tab" data-toggle="tab">Open Spot Fixes (You are welcome to join!)</a></li>
+              <li><a href="#closedActivities" role="tab" data-toggle="tab">Completed Spot Fixes (We salute the volunteers!!)</a></li>
 <!--              <li><a href="#allActivities" role="tab" data-toggle="tab">All Activities</a></li>-->
             </ul>
         
             <div class="tab-content">
               <div class="tab-pane active" id="openActivities">
-                  These are the fixes owned
+                  <br><br>
+                  These are the spot fixes planned by some of our members. Please click on these and join the spot fix by clicking the button.
+                  The details are given.
+                  <br>
                     <div id="accordion-openAct-data">
                         
                     </div>
               </div>
               <div class="tab-pane" id="closedActivities">
-                  These are the fixes contributed to
+                  <br><br>
+                  It took some people their time, dedication and determination to come out of their homes and clean up the streets.
+                  Thank you!
+                  These are the successful spotfixes so far!
+                  <br>
                   <div id="accordion-closedAct-data">
                         
                   </div>
@@ -81,23 +88,18 @@
                 </div>
               </div>-->
             </div>
-     
-      </div> <!-- /row -->
         
-        <div class="row">
-        <div class="col-xs-12">
-            
-        </div>
-        
-        
-        
-      </div> <!-- /row -->
-      
-      <div class="col-xs-12" id="mapHoldingCol" style="height:500px;">
+              <div class="col-xs-12" id="mapHoldingCol" style="height:500px;">
                 <div id="map_canvas"></div>
             </div>
 
       </div>
+     
+      </div> <!-- /row -->
+        
+       
+      
+
 
     <!-- /.container -->
 
@@ -119,7 +121,7 @@
     <script src="js/flatui-radio.js"></script>
     <script src="js/jquery.tagsinput.js"></script>
     <script src="js/jquery.placeholder.js"></script>
-<!--    <script src="javascript/template.js"></script>-->
+    <script src="javascript/common.js"></script>
     <script src="javascript/spotfix.js"></script>
   </body>
 </html>

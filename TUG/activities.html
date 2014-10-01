@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>The Logical Indian</title>
+    <title>The Ugly Indian</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
     <!-- Loading Bootstrap -->
@@ -31,18 +31,18 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
               <span class="sr-only">Toggle navigation</span>
             </button>
-            <a class="navbar-brand" href="web/web.html">The Logical Indian</a>
+            <a class="navbar-brand" href="index.html">The Ugly Indian</a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav">           
-              <li><a href="#fakelink">Plan a Spot Fix</a></li>
+              <li><a href="form.html">Plan a Spot Fix</a></li>
               <li><a href="spotfix.html">Spot Fixes</a></li>
-              <li class="active"><a href="activities.html">My Activities</a></li>
-              <li><a href="#fakelink">Profile</a></li>
+              <li class="active"><a href="activities.html">My Spotfixes</a></li>
+              
                
             </ul>
               <ul class="nav navbar-nav navbar-right">
-              <li><a href="#fakelink">Logout</a></li>    
+              <li ><a href="index.html" id="logout">Logout</a></li>    
               </ul>
               
             
@@ -56,24 +56,32 @@
       
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-              <li class="active"><a href="#owned" role="tab" data-toggle="tab">Owned</a></li>
-              <li><a href="#contributed" role="tab" data-toggle="tab">My Contributions</a></li>
+              <li class="active"><a href="#owned" role="tab" data-toggle="tab">Spotfixes created by Me!</a></li>
+              <li><a href="#contributed" role="tab" data-toggle="tab">Spotfixes I have volunteered</a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
               <div class="tab-pane active" id="owned">
-                  These are the fixes owned
+                  <br><br>
+                  These are the spot fixes you thought you will do.<br>
+                  These are available for everyone to see! and they can join too.
                     <div id="accordion-owned-data">
                         
                     </div>
               </div>
               <div class="tab-pane" id="contributed">
-                  These are the fixes contributed to
+                  <br><br>
+                  These are the spot fixes you have decided to volunteer. 
+                  <br> Don't think twice! check the dates and clean up the place!<br>
                   <div id="accordion-contributed-data">
                         
                   </div>
               </div>
+            </div>
+        
+        <div class="col-xs-12" id="mapHoldingCol" style="height:500px;">
+                <div id="map_canvas"></div>
             </div>
         
       </div> <!-- /row -->
@@ -93,6 +101,7 @@
 
 
     <!-- Load JS here for greater good =============================-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBR_fo7ceHGl70oWC3eCSKaBpLDDeSQaSc&region=IN&libraries=places"></script>
     <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
     <script>
         Parse.initialize("vSo04vEpbyviumU65MZFyuaj8zPx0aOhBfpTrAB0",
@@ -108,7 +117,7 @@
     <script src="js/flatui-radio.js"></script>
     <script src="js/jquery.tagsinput.js"></script>
     <script src="js/jquery.placeholder.js"></script>
-    <script src="javascript/template.js"></script>
+<!--    <script src="javascript/template.js"></script>-->
     <script src="javascript/activities.js"></script>
   </body>
 </html>

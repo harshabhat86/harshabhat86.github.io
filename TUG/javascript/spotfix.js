@@ -1,50 +1,44 @@
-var userid = Parse.User.current().attributes.username;
-var username = Parse.User.current().attributes.name;
+var userid,username;
+
+if (Parse.User.current()){
+ userid = Parse.User.current().attributes.username;
+ username = Parse.User.current().attributes.name;
+}
 locationArray = [];
+
+$(document).ready(function(){
+    
+    $("#planASpotFix").on("hover", function () {
+    
+        $('this').tooltip('show');
+    });
+    
+    $("#spotFixes").on("hover", function () {
+    
+        $('this').tooltip('show');
+    });
+    //if the user is not logged in then dont show the planaspotfix and My Spotfixes options.
+    if (typeof userid=="undefined")
+    {
+           
+        $("#planASpotFix").hide();
+        $("#mySpotfixes").hide();
+        $("#logout").hide();
+        
+    }
+    
+
+});// end $(document).ready
+
+
+
 
 /*
 Harsha:Adding Google Map first.
 
 */
 
-//var locationArray = [{
-//        area: "Banashankari, Bangalore",
-//        lat: 12.9373,
-//        lng: 77.5543,
-//        desc: bigFatDescription
-//    },
-//    {
-//        area: "RVCE, Bangalore",
-//        lat: 12.9239,
-//        lng: 77.4997,
-//        desc: bigFatDescription
-//    },
-//    {
-//        area: "Malleshwaram, Bangalore",
-//        lat: 12.9800,
-//        lng: 77.5750,
-//        desc: bigFatDescription
-//    },
-//    {
-//        area: "Maratahalli, Bangalore",
-//        lat: 12.9562,
-//        lng: 77.7019,
-//        desc: bigFatDescription
-//    },
-//    {
-//        area: "KR Puram, Bangalore",
-//        lat: 12.9950,
-//        lng: 77.6800,
-//        desc: bigFatDescription
-//    },
-//    {
-//        area: "Basavanagudi, Bangalore",
-//        lat: 12.9400,
-//        lng: 77.5700,
-//        desc: bigFatDescription
-//    }
-//
-//    ];
+
 
 /*
 
@@ -230,7 +224,7 @@ function appendOpenActivities(data, i) {
         'Location(latitude, longitude) : ' + data.latLng.latitude + ', ' + data.latLng.longitude + '<br/>' +
         'Created on                    : ' + data.createdAt.substring(0, 10) + '<br/>' +
         'Last updated on               : ' + data.updatedAt.substring(0, 10) + '<br/>' +
-        '<button onclick="signUp('+ buttonId + ');" id="' + buttonId + '">Signup to volunteer</button>' +
+        '<button onclick="signUp('+ buttonId + ');" id="' + buttonId + '">Join this Spot Fix</button>' +
         '</div></div>'
     );
 }
@@ -302,6 +296,7 @@ function signUp(buttonId) {
         }
     });
 }
+
 
 
 //Render Google Maps

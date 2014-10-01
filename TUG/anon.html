@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>The Ugly Indian</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <link href="css/template.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container-fluid">
+
+         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="slide-nav">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="home.html">The Ugly Indian</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+                <ul class="nav navbar-nav">
+                    <li ><a href="#fakelink" id="planASpotFix">Plan a Spot Fix</a>
+                    </li>
+                    <li><a id="spotFixes" href="#">Spot Fixes</a>
+                    </li>
+                    <li class="active"><a href="template.html">Join a spot fix</a>
+                    </li>
+
+
+
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="loginUsingFb" href="index.html" data-toggle="tooltip" data-placement="bottom" title="Sign in using Facebook."><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#fakelink"></a>
+                    </li>
+                    <li>
+                        <a href="#fakelink"></a>
+                    </li>
+                </ul>
+
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+
+        <div class="page-header text-center">
+            <h2>Join a spot fix near you </h2>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <input type="text" class="form-control text-center" placeholder="Search a spotfix. Enter an address or a place you know" />
+                    <span class="input-icon fui-search"></span>
+</div>
+            </div>
+        </div>
+
+        <div class="row" id="mapHolder">
+            <div class="col-xs-12" id="mapHoldingCol">
+                <div id="map_canvas"></div>
+            </div>
+
+
+
+        </div>
+        <!-- /row -->
+
+        <div class="row">
+            <div class="col-xs-12">
+
+            </div>
+
+
+
+        </div>
+        <!-- /row -->
+
+
+        
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- Load JS here for greater good =============================-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBR_fo7ceHGl70oWC3eCSKaBpLDDeSQaSc&region=IN&libraries=places"></script>
+    <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+    <script src="js/flatui-checkbox.js"></script>
+    <script src="js/flatui-radio.js"></script>
+    <script src="js/jquery.tagsinput.js"></script>
+    <script src="js/jquery.placeholder.js"></script>
+    <script src="javascript/anon.js"></script>
+</body>
+
+</html>
