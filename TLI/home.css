@@ -1,38 +1,51 @@
-html,body{height:100%;}
+html,
+body {
+    height: 100%;
+}
 .container-fluid {
-    height:100%;
+    height: 100%;
 }
-
-#carousel_image{
- max-height:100%;
- max-width: 100%;
- height: 100%;
- width: 100%;
+#carousel_image {
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
 }
-
-.carouselRow{
- height: inherit;
-max-height:inherit;    
+.carouselRow {
+    height: inherit;
+    max-height: inherit;
 }
-
-#home_Image, Hhome_Image>p{
+#home_Image,
+Hhome_Image>p {
     text-align: center;
     vertical-align: middle;
-    background-color: #E74C3C; 
+    background-color: #E74C3C;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", "sans-serif";
     font-size: 50px;
-    
 }
-#gandhi
-{
-  text-align: center;   
+#gandhi {
+    text-align: center;
 }
-
-#glyph{
- text-align: center;
+#glyph {
+    text-align: center;
     vertical-align: bottom;
 }
-.success{
-  height: 150px;
-    
+.success {
+    height: 150px;
+}
+#card1 {
+    background-color: "#C0392B";
+    text-align: center;
+}
+#card2 {
+    background-color: "#34495E";
+    text-align: center;
+}
+#card3 {
+    background-color: "#1ABC9C";
+    text-align: center;
+}
+#card4 {
+    background-color: "#2980B9";
+    text-align: center;
 }
