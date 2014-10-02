@@ -112,6 +112,12 @@ function initialize() {
 
 
     showAllCoordinates(map);
+    
+    google.maps.event.addListener(map, 'tilesloaded', function() {
+    // 3 seconds after the center of the map has changed, pan back to the
+    // marker.
+    showAllCoordinates(map);
+  });
 };
 
 function set_location(pos) {

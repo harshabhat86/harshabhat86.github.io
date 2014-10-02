@@ -142,7 +142,13 @@ function initialize() {
 console.log("coming till here :"+locationArray.length);
     var map = new google.maps.Map(mapCanvas, mapOptions);
 console.log("locationArray is in function is :"+locationArray.length);
+    //pinCoordinates(map);
+    
+    google.maps.event.addListener(map, 'tilesloaded', function() {
+    // 3 seconds after the center of the map has changed, pan back to the
+    // marker.
     pinCoordinates(map);
+  });
 };
 
 
