@@ -168,7 +168,55 @@ function codeLatLng() {
   });
 }
 
+function isNullOrUndefined(aVar){
+    if (aVar == null || typeof aVar == "undefined"){
+        return true;
+    }
+    
+    return false;
+    
+}
+function validEntry(){
+
+    var valid = false;
+    if (isNullOrUndefined(addressGeoTags)){
+        return valid;
+    }
+    if (isNullOrUndefined(userid)){
+        return valid;
+    }
+    
+    if (isNullOrUndefined(username)){
+        return valid;
+    }
+    
+    if (isNullOrUndefined($("#description").val())){
+        return valid;
+    }
+    
+    if (isNullOrUndefined(parseInt($("#noOfPeople").val()))){
+        return valid;
+    }
+    
+    if (isNullOrUndefined(parseInt($("#hoursNeeded").val()))){
+        return valid;
+    }
+    
+    if (isNullOrUndefined($("#addressOfTheFix").val())){
+        return valid;
+    }
+    
+    return true;
+    
+    
+};
+
 function createSpotFix(){
+    
+    if (!validEntry()){
+      alert("All Fields are Mandatory. Please fill them all and create a spotfix!");    
+      return;   
+    }
     
     var SpotfixObject = Parse.Object.extend("Spotfix");
     var spotfixObject = new SpotfixObject();
@@ -178,29 +226,47 @@ function createSpotFix(){
             });
     var dtArray = $("#soptFixDate").val().split("/");
     var timeArray = $("#soptFixTime").val().split(":");
-    var spotFixDate = new Date(dtArray[2],dtArray[1],dtArray[0],timeArray[0],timeArray[1],0,0);
+    var spotFixDate = new Date();
+    spotFixDate.setFullYear(dtArray[2]);
+    spotFixDate.setMonth(dtArray[1]);
+    spotFixDate.setDate(dtArray[0]);
+    spotFixDate.setHours(timeArray[0]);
+    spotFixDate.setHours(timeArray[1]);
     
+    var dt = new Date($("#soptFixDate").val());
+    var dtStr = [dtArray[2],"-",dtArray[1],"-",dtArray[0],"T",timeArray[0],":",timeArray[1],".0Z"].join('');
+    console.log(dtStr);
+    var dt = {
+  "__type": "Date",
+  "iso": dtStr
+};
+    //(dtArray[2],dtArray[1],dtArray[0],timeArray[0],timeArray[1],0,0)
     spotfixObject.set("latLng",gp);
     spotfixObject.set("ownerId", userid);  
     spotfixObject.set("ownerName", username);
     spotfixObject.set("description", $("#description").val());
     spotfixObject.set("noOfPeople", parseInt($("#noOfPeople").val()));
-//    spotfixObject.set("soptFixDate", spotFixDate);
-    spotfixObject.set("soptFixDate", new Date());
+    spotfixObject.set("soptFixDate", dt);
+//    spotfixObject.set("soptFixDate", new Date());
     spotfixObject.set("isComplete", false);
     spotfixObject.set("hoursNeeded", parseInt($("#hoursNeeded").val()));
     spotfixObject.set("addressOfTheFix", $("#addressOfTheFix").val());
-    spotfixObject.addUnique("volunteers", username);
+//    spotfixObject.addUnique("volunteers", username);
     
     spotfixObject.save(null, {
         success: function(spotfixObject) {
             
             $("#createSpotfix").addClass("btn-success").removeClass("btn-primary").html("Spotfix created! Congratulations!!!!");
+            $("#formObject").find("input.form-control").val("");
+            var tim = setTimeout(function(){
+                $("#createSpotfix").addClass("btn-primary").removeClass("btn-success").html("Create Spotfix");
+                clearTimeout(tim);
+            }, 2000);
             
         },
         error: function(model, error) {
             error_ = error;
-            console.log("Failed to signup"+error.toString());
+            alert("[ERROR while saving:] "+error.message);
             
         }
     });

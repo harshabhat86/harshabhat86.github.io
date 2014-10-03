@@ -37,8 +37,8 @@
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav">           
-              <li><a id="planASpotFix" href="form.html" title="Own a spotfix! Let others follow the lead!" data-toggle="tooltip" data-placement="bottom">Plan a Spot Fix</a></li>
-              <li class="active"><a id="spotFixes" href="spotfix.html" title="You can join a spotfix too!!" data-toggle="tooltip" data-placement="bottom">Spot Fixes</a></li>
+              <li class="active"><a id="planASpotFix" href="form.html" title="Own a spotfix! Let others follow the lead!" data-toggle="tooltip" data-placement="bottom">Plan a Spot Fix</a></li>
+              <li ><a id="spotFixes" href="spotfix.html" title="You can join a spotfix too!!" data-toggle="tooltip" data-placement="bottom">All Spot Fixes</a></li>
               <li><a id="mySpotfixes" href="activities.html">My Spotfixes</a></li>
               
                
@@ -54,7 +54,7 @@
         <div class="row"><br><br><br></div>
         
         <div class="spot-fix">
-    <div class="form-horizontal col-xs-8 col-md-offset-2">
+    <div class="form-horizontal col-xs-8 col-md-offset-2" id="formObject">
         <div class="form-group">
             <label for="description" class="control-label col-xs-2">Description</label>
             <div class="col-xs-10">
@@ -84,13 +84,13 @@
         <div class="form-group">
             <label for="soptFixDate" class="control-label col-xs-2">Spotfix Date</label>
             <div class="col-xs-10">
-                <input class="datepicker form-control" id="soptFixDate" placeholder="DD-MM-YYYY format only" data-date-format="dd-mm-yyyy" readonly='true'>
+                <input type = "text" class="datepicker form-control" id="soptFixDate" placeholder="DD-MM-YYYY format only" data-date-format="dd-mm-yyyy" readonly='true'>
             </div>
         </div>
         <div class="form-group">
             <label for="soptFixTime" class="control-label col-xs-2">Spotfix Time</label>
             <div class="col-xs-10">
-                <input class="datepicker form-control" id="soptFixTime" placeholder="Hours: Minutes in 24 hour format" type=time>
+                <input class="datepicker form-control" id="soptFixTime" placeholder="Hours: Minutes in 24 hour format" type="text">
             </div>
         </div>
         <div class="form-group">
