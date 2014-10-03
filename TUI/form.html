@@ -52,7 +52,7 @@
         <div class="row"><br><br><br></div>
         
         <div class="spot-fix">
-    <form class="form-horizontal col-xs-8">
+    <div class="form-horizontal col-xs-8">
         <div class="form-group">
             <label for="description" class="control-label col-xs-2">Description</label>
             <div class="col-xs-10">
@@ -60,10 +60,12 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="addressOfTheFix" class="control-label col-xs-2">Address</label>
+                <label for="addressOfTheFix" class="control-label col-xs-2">Address</label>
             <div class="col-xs-10">
-                <input type="text" class="form-control" id="addressOfTheFix" placeholder="Landmark of the location which needs a fix.">
-            </div>
+                <input type="text" class="form-control" id="addressOfTheFix" placeholder="Enter address or click on the map to choose the place">
+                
+                </div>
+            
         </div>
         <div class="form-group">
             <label for="hoursNeeded" class="control-label col-xs-2">Hours needed</label>
@@ -80,29 +82,26 @@
         <div class="form-group">
             <label for="soptFixDate" class="control-label col-xs-2">Spotfix Date</label>
             <div class="col-xs-10">
-                <input class="datepicker form-control" id="soptFixDate" data-date-format="dd/mm/yyyy">
+                <input class="datepicker form-control" id="soptFixDate" placeholder="DD-MM-YYYY format only" type=datetime data-date-format="dd-mm-yyyy">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="soptFixTime" class="control-label col-xs-2">Spotfix Time</label>
+            <div class="col-xs-10">
+                <input class="datepicker form-control" id="soptFixTime" placeholder="Hours: Minutes in 24 hour format" type=time>
             </div>
         </div>
         <div class="form-group">
             <div class="col-xs-offset-2 col-xs-10">
-                <button type="submit" class="btn btn-primary">Create Spotfix</button>
+                <button class="btn btn-primary" id="createSpotfix">Create Spotfix</button>
             </div>
         </div>
-    </form>
+    </div>
 </div>
         
          
                 
-             <div id="panel" class="col-xs-10 row">
-                <input id="address" type="textbox" value="Bangalore, IN" class="form-control col-xs-8">
-            </div>
-            <div class="col-xs-2 row">
-
-                 <button class="btn btn btn-primary" onclick="codeAddress()">
-                    Take me there 
-                 </button>
-                    
-            </div>
+           
         <div class="col-xs-12" id="mapHoldingCol" style="height:500px;">
              <div id="map_canvas"></div>
             </div>
@@ -117,8 +116,9 @@
         Parse.initialize("vSo04vEpbyviumU65MZFyuaj8zPx0aOhBfpTrAB0",
 			"kz4KisAWl3Xc8QRWbgpVU2FrnGoMh5BIL0I3V0c1");
     </script>
-    <script src="js/jquery-1.8.3.min.js"></script>
-    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<!--    <script src="js/jquery-1.8.3.min.js"></script>-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>  
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script src="http://bsdp-assets.blackcherry.us/1.3.0/bootstrap-datepicker.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
