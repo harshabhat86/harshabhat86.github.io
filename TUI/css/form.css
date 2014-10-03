@@ -22,3 +22,12 @@
 #address{
  width: 50%;  
 }
+
+#ui-datepicker-div{
+/* background-color:#34495e;*/
+    background-color:#BDC3C7;
+    border-radius: 10px;
+    padding:10px;
+    
+    
+}

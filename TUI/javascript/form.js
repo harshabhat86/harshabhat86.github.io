@@ -13,7 +13,8 @@ locationArray = [];
 
 $(document).ready(function(){
     
-    $("#soptFixDate").datepicker({ autoclose: true, todayHighlight: true });
+    $("#soptFixDate").datepicker({ autoclose: true, todayHighlight: true, dateFormat: "dd-mm-yy"});
+    
     
     $("#addressOfTheFix").on("blur",function(){
     if ($(this).val()!='')
@@ -22,7 +23,23 @@ $(document).ready(function(){
                             
     );
     
-    $("#createSpotfix").on("click",function(){createSpotFix();});                         
+    $("#createSpotfix").on("click",function(){createSpotFix();});     
+    
+    
+    $("#soptFixTime").on("blur",function(){
+    
+    if ($(this).val()!=''){
+    var pattern =  new RegExp("^(1?[0-9]|2[0-3]):[0-5][0-9]$");                             
+    if (pattern.test($(this).val())==false){
+        console.log("Pattern match fail!");
+        $("#soptFixTime").focus();
+        alert("Invalid Time Format");
+        $(this).val("");
+        
+        
+    }
+    }
+    });
 
 });// end $(document).ready
 
