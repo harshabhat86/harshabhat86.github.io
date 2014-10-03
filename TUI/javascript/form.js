@@ -1,5 +1,6 @@
 var userid,username;
-
+var geocoder;
+var map;
 if (Parse.User.current()){
  userid = Parse.User.current().attributes.username;
  username = Parse.User.current().attributes.name;
@@ -125,17 +126,30 @@ function initialize() {
         zoom: 10,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-console.log("coming till here :"+locationArray.length);
-    var map = new google.maps.Map(mapCanvas, mapOptions);
-console.log("locationArray is in function is :"+locationArray.length);
+    map = new google.maps.Map(mapCanvas, mapOptions);
+
     //pinCoordinates(map);
     
-    google.maps.event.addListener(map, 'tilesloaded', function() {
-    // 3 seconds after the center of the map has changed, pan back to the
-    // marker.
-    pinCoordinates(map);
-  });
+    geocoder = new google.maps.Geocoder();
+    
+    
 };
+
+
+function codeAddress() {
+  var address = document.getElementById('address').value;
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
 
 
 

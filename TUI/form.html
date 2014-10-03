@@ -23,7 +23,7 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body onload="getAllData();">
+  <body>
     <div class="container-fluid">
         
          <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="slide-nav">
@@ -90,6 +90,22 @@
         </div>
     </form>
 </div>
+        
+         
+                
+             <div id="panel" class="col-xs-10 row">
+                <input id="address" type="textbox" value="Bangalore, IN" class="form-control col-xs-8">
+            </div>
+            <div class="col-xs-2 row">
+
+                 <button class="btn btn btn-primary" onclick="codeAddress()">
+                    Take me there
+                 </button>
+                    
+            </div>
+        <div class="col-xs-12" id="mapHoldingCol" style="height:500px;">
+             <div id="map_canvas"></div>
+            </div>
         
         
         </div><!-- /.container -->
