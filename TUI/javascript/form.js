@@ -224,30 +224,17 @@ function createSpotFix(){
                 latitude: addressGeoTags.k,
                 longitude: addressGeoTags.B                 
             });
-    var dtArray = $("#soptFixDate").val().split("/");
+    var dtArray = $("#soptFixDate").val().split("-");
     var timeArray = $("#soptFixTime").val().split(":");
-    var spotFixDate = new Date();
-    spotFixDate.setFullYear(dtArray[2]);
-    spotFixDate.setMonth(dtArray[1]);
-    spotFixDate.setDate(dtArray[0]);
-    spotFixDate.setHours(timeArray[0]);
-    spotFixDate.setHours(timeArray[1]);
     
-    var dt = new Date($("#soptFixDate").val());
-    var dtStr = [dtArray[2],"-",dtArray[1],"-",dtArray[0],"T",timeArray[0],":",timeArray[1],".0Z"].join('');
-    console.log(dtStr);
-    var dt = {
-  "__type": "Date",
-  "iso": dtStr
-};
-    //(dtArray[2],dtArray[1],dtArray[0],timeArray[0],timeArray[1],0,0)
+    
+  
     spotfixObject.set("latLng",gp);
     spotfixObject.set("ownerId", userid);  
     spotfixObject.set("ownerName", username);
     spotfixObject.set("description", $("#description").val());
     spotfixObject.set("noOfPeople", parseInt($("#noOfPeople").val()));
-    spotfixObject.set("soptFixDate", dt);
-//    spotfixObject.set("soptFixDate", new Date());
+    spotfixObject.set("soptFixDate", new Date(dtArray[2],(parseInt(dtArray[1])-1),dtArray[0],timeArray[0],timeArray[1]));
     spotfixObject.set("isComplete", false);
     spotfixObject.set("hoursNeeded", parseInt($("#hoursNeeded").val()));
     spotfixObject.set("addressOfTheFix", $("#addressOfTheFix").val());
