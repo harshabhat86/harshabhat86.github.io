@@ -1,5 +1,5 @@
 var userid,username;
-// this is needed for parse
+
 if (Parse.User.current()){
  userid = Parse.User.current().attributes.username;
  username = Parse.User.current().attributes.name;
