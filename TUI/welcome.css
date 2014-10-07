@@ -1,0 +1,23 @@
+body{
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    background: #2c3e50;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
+/*.Gandhi-quote h6{*/
+    /*float: right;*/
+/*}*/
+
+.statastics{
+    clear: both;
+    text-align: center;
+}
+.login-div{
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
