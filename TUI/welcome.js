@@ -33,6 +33,9 @@ function getStats() {
             separators: true,
             stopat: stopAtHours
         });
+    
+    $("#login-div").show();
+    $(".login-div").show();
 }
 
 function getFixesCount() {
