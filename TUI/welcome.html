@@ -22,30 +22,33 @@
     <br>
 
     <!-- stats here-->
-    <div class="statastics">
-        <h3><span class="tick-fixes">0</span> <span>Spot Fixes</span></h3>
-        <h3><span class="tick-people">0</span> <span>People volunteered</span></h3>
-        <h3><span class="tick-hours">0</span> <span>Hours of cleaning</span></h3>
+    <ul id="container">
+        <li class="statastics">
+            <h3><span class="tick-fixes">0</span> <span>Spot Fixes</span></h3>
+            <h3><span class="tick-people">0</span> <span>People volunteered</span></h3>
+            <h3><span class="tick-hours">0</span> <span>Hours of cleaning</span></h3>
+        </li>
+        <li class="login-div">
 
-        <p>It’s time we admitted that many of India’s problems are because many of us are Ugly Indians.
-        Look at any Indian street, we have pathetic civic standards. We tolerate an incredible amount of filth. 
-        This is not about money, know how, or systems. This is about attitudes. About a rooted cultural behaviour.
-        The Ugly Indian can take the world's best systems and find a way around it. Even outside India. Streets in Indian-dominated suburbs overseas are good indicators of this lack of civic sense. Ask those who have visited Southall (London), Edison (New Jersey) and Little India (Singapore).
-        It’s time for us Ugly Indians to do something about this. Only we can save us. From ourselves.</p>
-    </div>
+            <p>It’s time we admitted that many of India’s problems are because many of us are Ugly Indians.
+            Look at any Indian street, we have pathetic civic standards. We tolerate an incredible amount of filth. 
+            This is not about money, know how, or systems. This is about attitudes. About a rooted cultural behaviour.
+            The Ugly Indian can take the world's best systems and find a way around it. Even outside India. Streets in Indian-dominated suburbs overseas are good indicators of this lack of civic sense. Ask those who have visited Southall (London), Edison (New Jersey) and Little India (Singapore).
+            It’s time for us Ugly Indians to do something about this. Only we can save us. From ourselves.</p>
+        </li>
 
-    <br>
-    <div class="login-div">
-        <button type="button" id="login" class="btn btn-lg btn-inverse" 
-                onclick="fblogin();" title="Login using facebook" data-toggle="tooltip" data-placement="bottom">
-                    <i class="fa fa-facebook-square "></i>&nbsp;&nbsp;I am an ugly Indian
-        </button>
-        <button type="button" id="no-login" class="btn btn-lg btn-inverse" 
-                onclick="window.location = 'spotfix.html';" title="How cool!" data-toggle="tooltip" data-placement="bottom">
-            Continue anonymously
-        </button>
-    </div>
-
+        <br>
+        <li class="login-div">
+            <button type="button" id="login" class="btn btn-lg btn-inverse" 
+                    onclick="fblogin();" title="Login using facebook" data-toggle="tooltip" data-placement="bottom">
+                        <i class="fa fa-facebook-square "></i>&nbsp;&nbsp;I am an ugly Indian
+            </button>
+            <button type="button" id="no-login" class="btn btn-lg btn-inverse" 
+                    onclick="window.location = 'spotfix.html';" title="How cool!" data-toggle="tooltip" data-placement="bottom">
+                Continue anonymously
+            </button>
+        </li>
+    </ul>
     
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
