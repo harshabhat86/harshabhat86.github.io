@@ -36,6 +36,8 @@ function getStats() {
     
     $("#login-div").show();
     $(".login-div").show();
+    
+    
 }
 
 function getFixesCount() {
