@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Splunk|Visualization</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootflat.github.io/bootflat/css/bootflat.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default navbar-custom" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">The Flower Sales!</a>
+                </div>
+
+            </div>
+        </nav>
+
+
+        <div class="row row-lg-height">
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="nav nav-tabs nav-justified">
+                        <ul id="myTab1" class="nav nav-tabs">
+                            <li class="active"><a href="#data" data-toggle="tab">Data</a>
+                            </li>
+                            <li id="chartTab"><a href="#lineChart" data-toggle="tab">Sales by Date</a>
+                            </li>
+
+                            <li id="soldUnsoldChartTab"><a href="#soldUnsold" data-toggle="tab">Sold/Unsold by item</a>
+                            </li>
+
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade active in" id="data">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" placeholder="Search Text Here" id="search">
+                                    </div>
+                                </div>
+
+
+
+                                <hr>
+                               
+                                <div id="searchDump" class="col-md-12 table-responsive"></div>
+
+
+                            </div>
+                            <div class="tab-pane fade" id="lineChart">
+
+
+                                <div id="chart" class="col-md-9"></div>
+
+
+
+                            </div>
+
+                            <div class="tab-pane fade" id="soldUnsold">
+
+                                <div class="col-md-12">
+
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-primary btn-block theFlowers" data-val="tulip">Tulip</button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-primary btn-block theFlowers" data-val="rose">Rose</button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-primary btn-block theFlowers" id="dandelion" data-val="dandelion">Dandelion</button>
+                                    </div>
+
+                                </div>
+
+                                
+
+
+                                <div id="soldUnsoldChart" class="col-md-9"></div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <!--End container-->
+    <!-- Bootstrap -->
+    <script src="js/data.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- Bootflat's JS files.-->
+    <script src="https://bootflat.github.io/bootflat/js/icheck.min.js"></script>
+    <script src="https://bootflat.github.io/bootflat/js/jquery.fs.selecter.min.js"></script>
+    <script src="https://bootflat.github.io/bootflat/js/jquery.fs.stepper.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+    <script src="js/flowers.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>

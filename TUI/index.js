@@ -37,6 +37,16 @@ function getStats() {
     $("#login-div").show();
     $(".login-div").show();
     
+     $("#login").on("hover", function () {
+          $(this).tooltip('show');
+        });
+        $("#no-login").on("hover", function() {
+            $(this).tooltip('show');
+        });
+        $("#scrollDown").on("hover", function() {
+            $(this).tooltip('show');
+        });
+    
     
 }
 
